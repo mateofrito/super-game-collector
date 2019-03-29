@@ -1,0 +1,250 @@
+@font-face {
+    font-family: mariofont;
+    src: url(./SuperMarioBrosNES.ttf);
+  }
+  
+  .header{
+     font-family: mariofont;
+     src: url(./SuperMarioBrosNES.ttf);
+     color: white;
+     background-color: black;
+     float: left;
+     width: 100%;
+     position: fixed;
+     top: 0;
+     height: 75px;
+
+  }
+
+  .buttons{
+    margin-top: 79px;
+  }
+
+  .console__name{
+    font-family: mariofont;
+     src: url(./SuperMarioBrosNES.ttf);
+     padding-top: 13px;
+     font-size: 24px;
+
+
+  }
+
+  .game__yearreleased{
+    font-family: 'Lora', serif;
+  }
+
+  .game__title{
+    font-family:  'Oswald', sans-serif;
+  }
+
+  .mario{
+      max-width: 45px;
+      float: left;
+      
+      padding-top: 10px;
+      padding-right: 10px;
+      padding-left: 10px;
+      padding-bottom: 20px;
+      margin-right: 10px;
+
+
+
+  }
+
+  .header__title{
+      padding-left: 10px;
+  }
+
+  .mario:hover {
+      background-color: #9290ff;
+
+  }
+
+  .app{
+      margin-top: 79px;
+      align-items: center;
+      text-align: center;
+  }
+    .console{
+        
+        float: left;
+        list-style: none;
+        width: 100%;
+    }
+    .game{
+      background-color: gray;
+      text-align: left;
+      float: left;
+      list-style: none;
+      margin: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+      text-align: center;
+      max-width: 140px;
+      width: 100%;
+     
+
+
+
+    }
+
+    .game__imagepath{
+        
+        max-width: 100px;;
+        width: 100%
+    }
+    .game-trigger{
+      font-size: 25px;
+    }
+    .console-trigger{
+        font-size: 25px;
+        
+      }
+
+
+    .modal-console{
+            
+            position: fixed;
+            left: 0;
+            top: 10px;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            z-index:3;
+            visibility: hidden;
+            transform: scale(1.1);
+            transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+       }
+
+       .consolemodal-content {
+        position: absolute;
+        /* top: 50%;
+        left: 50%; */
+        top: 50%;
+        left: 50%;
+        width: 25%;
+        height: 25%;
+        font-size: 20px;
+        
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 1rem 1.5rem;
+        width: 24rem;
+        border-radius: 0.5rem;
+        overflow: auto;
+      }
+
+       .close-button {
+        float: right;
+        width: 1.5rem;
+        line-height: 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        background-color: lightgray;
+      }
+      .close-button:hover {
+        background-color: darkgray;
+      }
+        .show-consolemodal {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1.0);
+            transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+          }
+
+         
+
+          .modal-game{
+            position: fixed;
+            left: 0;
+            top: 10px;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            z-index:3;
+            visibility: hidden;
+            transform: scale(1.1);
+            transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+       }
+
+       .gamemodal-content {
+        position: absolute;
+        /* top: 50%;
+        left: 50%; */
+        top: 50%;
+        left: 50%;
+        width: 25%;
+        height: 25%;
+        font-size: 20px;
+        
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 1rem 1.5rem;
+        width: 24rem;
+        border-radius: 0.5rem;
+        overflow: auto;
+      }
+
+       .close-button2 {
+        float: right;
+        width: 1.5rem;
+        line-height: 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        background-color: lightgray;
+      }
+      .close-button2:hover {
+        background-color: darkgray;
+      }
+        .show-gamemodal {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1.0);
+            transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+          }
+
+          
+          .console__header{
+            margin: 2px;
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+            background-color: red;
+            color: white;
+            height: 50px;
+            transition: 0.4s;
+            
+          }
+          
+          .console__header:hover{
+            background-color: black;
+          }
+          
+          .console__imagepath{
+            float: left;
+          }
+          
+          .console__imagepath{
+            padding-bottom: 20px;
+            padding-right: 5px;
+          }
+  
+          .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+          }
+         .games{
+           text-align: left;
+           padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+                              }
