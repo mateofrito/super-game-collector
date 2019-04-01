@@ -17,7 +17,6 @@ import io.mattfry.gamecollector.models.Company;
 import io.mattfry.gamecollector.models.GameConsole;
 import io.mattfry.gamecollector.repositories.CompanyRepository;
 import io.mattfry.gamecollector.repositories.ConsoleRepository;
-
 @CrossOrigin
 @RestController
 @RequestMapping("/consoles")

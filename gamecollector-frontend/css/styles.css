@@ -12,7 +12,7 @@
      width: 100%;
      position: fixed;
      top: 0;
-     height: 75px;
+     max-height: 75px;
 
   }
 
@@ -24,7 +24,7 @@
     font-family: mariofont;
      src: url(./SuperMarioBrosNES.ttf);
      padding-top: 13px;
-     font-size: 24px;
+     font-size: 2.13vh
 
 
   }
@@ -40,7 +40,7 @@
   .mario{
       max-width: 45px;
       float: left;
-      
+      width: 100%;
       padding-top: 10px;
       padding-right: 10px;
       padding-left: 10px;
@@ -53,6 +53,7 @@
 
   .header__title{
       padding-left: 10px;
+      font-size: 2.8vw;
   }
 
   .mario:hover {
@@ -94,10 +95,14 @@
         width: 100%
     }
     .game-trigger{
-      font-size: 25px;
+      font-size: 2.2vh;
     }
     .console-trigger{
-        font-size: 25px;
+        font-size: 2.2vh;
+        
+      }
+      .company-trigger{
+        font-size: 2.2vh;
         
       }
 
@@ -244,7 +249,60 @@
          .games{
            text-align: left;
            padding: 0 18px;
-            display: none;
+           
             background-color: white;
             overflow: hidden;
+                              }
+
+
+                              .modal-company{
+                                position: fixed;
+                                left: 0;
+                                top: 10px;
+                                width: 100%;
+                                height: 100%;
+                                max-width: 100%;
+                                background-color: rgba(0, 0, 0, 0.5);
+                                opacity: 0;
+                                z-index:3;
+                                visibility: hidden;
+                                transform: scale(1.1);
+                                transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+                           }
+                    
+                           .companymodal-content {
+                            position: absolute;
+                            /* top: 50%;
+                            left: 50%; */
+                            top: 50%;
+                            left: 50%;
+                            width: 25%;
+                            height: 25%;
+                            font-size: 20px;
+                            
+                            transform: translate(-50%, -50%);
+                            background-color: white;
+                            padding: 1rem 1.5rem;
+                            width: 24rem;
+                            border-radius: 0.5rem;
+                            overflow: auto;
+                          }
+                    
+                           .close-button3 {
+                            float: right;
+                            width: 1.5rem;
+                            line-height: 1.5rem;
+                            text-align: center;
+                            cursor: pointer;
+                            border-radius: 0.25rem;
+                            background-color: lightgray;
+                          }
+                          .close-button3:hover {
+                            background-color: darkgray;
+                          }
+                            .show-companymodal {
+                                opacity: 1;
+                                visibility: visible;
+                                transform: scale(1.0);
+                                transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
                               }

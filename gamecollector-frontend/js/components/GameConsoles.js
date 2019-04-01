@@ -5,6 +5,7 @@ export default function GameConsoles(gameconsoles) {
     <div class="buttons">
         <button class="console-trigger">Add Console</button>
         <button class="game-trigger">Add Game</button>
+        <button class="company-trigger">Add Publisher/Manufacture</button>
     </div>
     <div class ="modal-console">
         <div class="consolemodal-content">
@@ -12,20 +13,36 @@ export default function GameConsoles(gameconsoles) {
                 <input type="text" class="add-console__full-name" placeholder="Console Name">
                 <input type="text" class="add-console__short-name" placeholder="Console Short Name">
                 <input type="text" class="add-console__image-path" placeholder="image URL">
+                <input type="text" class="add-game_manufacture" placeholder="Manufacturer">
                 <button class="add-console__submit">Add Console</button>
         </div>
    </div>
    <div class ="modal-game">
                <div class="gamemodal-content">
                        <span class="close-button2">X</span>
-                         <input type="text" class="add-game__name" placeholder="Name">
+                         <input type="text" class="add-game__name" placeholder="Game Title">
                          <input type="text" class="add-game__yearreleased" placeholder="Year Released">
-                     
+                         <input type="text" class="add-game_publisher" placeholder="Publisher">
+                         <input type="text" class="add-console__forgames" placeholder="Console">
+                         <input type="text" class="add-game__image-path" placeholder="Image URL">
                          <button class="add-game__submit">Add Game</button>
                  </div>
    </div>
+   <div class ="modal-company">
+   <div class="companymodal-content">
+           <span class="close-button3">X</span>
+           <input type="text" class="add-company__name" placeholder="Console Name">
+           <input type="text" class="add-company__image-path" placeholder="Company Logo">
+           
+           
+           <button class="add-company__submit">Add Company</button>
+   </div>
+</div>
+   
       <ul class="consoles">
         ${gameconsoles.map(gameconsole => {
+          console.log(gameconsole)
+          console.log(gameconsole.games)
             return `
            <li class="console">
             <section class="console__header">
@@ -33,7 +50,7 @@ export default function GameConsoles(gameconsoles) {
                 <h3 class="console__name">${gameconsole.consoleName}</h3>
             </section>
             <ul class="games">
-            ${Games(gameconsole.game)}
+            ${Games(gameconsole.games)}
             </ul>
             </li>
             `;

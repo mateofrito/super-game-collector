@@ -18,8 +18,6 @@ import io.mattfry.gamecollector.models.GameConsole;
 import io.mattfry.gamecollector.repositories.CompanyRepository;
 import io.mattfry.gamecollector.repositories.ConsoleRepository;
 import io.mattfry.gamecollector.repositories.GameRepository;
-
-
 @CrossOrigin
 @RestController
 @RequestMapping("/company")

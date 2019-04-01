@@ -27,6 +27,7 @@ public class Initializer implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Company company1 = companyRepo.save(new Company("Nintendo", "http://mattfry.io/consoleicons/nes.png" ));
+		Company company2 = companyRepo.save(new Company("unknown", "http://mattfry.io/consoleicons/consolegeneric.png"));
 		
 		GameConsole console1 = consoleRepo.save(new GameConsole("Nintendo Entertainment System", "NES","http://mattfry.io/consoleicons/nes.png", company1));
 		GameConsole console2 = consoleRepo.save(new GameConsole("Super Nintendo Entertainment System", "SNES","http://mattfry.io/consoleicons/snes.png" , company1));
@@ -34,6 +35,7 @@ public class Initializer implements CommandLineRunner {
 		GameConsole console4 = consoleRepo.save(new GameConsole("Nintendo GameCube", "GCN","http://mattfry.io/consoleicons/gcn.png" , company1));
 		GameConsole console5 = consoleRepo.save(new GameConsole("Nintendo Wii", "Wii","http://mattfry.io/consoleicons/wii.png" , company1));
 		GameConsole console7 = consoleRepo.save(new GameConsole("Nintendo Wii U", "Wii U" ,"http://mattfry.io/consoleicons/wiiu.png" , company1));
+		GameConsole console8 = consoleRepo.save(new GameConsole("unknownconsole", "unknown", "http://mattfry.io/consoleicons/consolegeneric.png", company2));
 		
 		Game game4 = gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", console1 , company1));
 		Game game5 = gameRepo.save(new Game("Super Mario Bros 2", "1987", "http://mattfry.io/gameimages/smb2.jpg", console1, company1));
