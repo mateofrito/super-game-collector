@@ -7,7 +7,9 @@ import javax.annotation.Resource;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -77,6 +79,12 @@ public class GameController {
 		
 		
 		
+	}
+	
+	@DeleteMapping("/delete")
+		public Game deleteGame(@PathVariable Long id){
+		Game gameToDelete = gameRepo.findById(id).get();
+		return gameToDelete;
 	}
 
 }

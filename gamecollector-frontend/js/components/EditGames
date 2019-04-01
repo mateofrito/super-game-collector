@@ -1,0 +1,11 @@
+export default function EditGames(games) {
+    return games.map(game => {
+            return `
+                <li class="editgame">
+                    <img class="editgame__imagepath" src="${game.imagePath}"></img>
+                    <p><h3 class="editgame__title">${game.gameTitle}</h3>
+                    <button class="delete-game__btn">Delete Game</button>
+                </li>
+            `;
+        }).join('')
+}

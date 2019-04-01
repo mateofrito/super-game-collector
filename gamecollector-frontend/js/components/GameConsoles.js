@@ -6,6 +6,7 @@ export default function GameConsoles(gameconsoles) {
         <button class="console-trigger">Add Console</button>
         <button class="game-trigger">Add Game</button>
         <button class="company-trigger">Add Publisher/Manufacture</button>
+        <button class="remove-game">Delete Games</button>
     </div>
     <div class ="modal-console">
         <div class="consolemodal-content">
@@ -31,7 +32,7 @@ export default function GameConsoles(gameconsoles) {
    <div class ="modal-company">
    <div class="companymodal-content">
            <span class="close-button3">X</span>
-           <input type="text" class="add-company__name" placeholder="Console Name">
+           <input type="text" class="add-company__name" placeholder="Company Name">
            <input type="text" class="add-company__image-path" placeholder="Company Logo">
            
            
