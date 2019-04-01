@@ -2,13 +2,18 @@ import events from './utils/events/event-actions'
 import api from './utils/api/api-actions'
 
 
+
 import GameConsoles from './components/GameConsoles'
 
 main()
 
 function main() {
-  api.getRequest('/consoles', gameconsoles => {
+  api.getRequest('http://localhost:8080/consoles', gameconsoles => {
     getAppContext().innerHTML = GameConsoles(gameconsoles);
+  })
+
+  api.getRequest('http://localhost:8080/games', games => {
+    getAppContext().innerHTML = Games(games);
   })
 
   events.on(getAppContext(), 'click', () => {
@@ -18,11 +23,24 @@ function main() {
             const shortName = document.querySelector('.add-console__short-name').value
             const imagePath = document.querySelector('.add-console__image-path').value
             
-              api.postRequest('/consoles/add', {
+              api.postRequest('http://localhost:8080/consoles/add', {
               consoleName: consoleName,
               shortName: shortName,
               imagePath: imagePath
             }, (gameconsoles) => getAppContext().innerHTML = GameConsoles(gameconsoles))
+          }
+
+          //game submit
+          if (event.target.classList.contains('add-game__submit')) {
+            const consoleName = document.querySelector('.add-game__name').value
+            const shortName = document.querySelector('.add-game__yearreleased').value
+            const imagePath = document.querySelector('.add-game__image-path').value
+            
+              api.postRequest('http://localhost:8080/games/add', {
+              consoleName: consoleName,
+              shortName: shortName,
+              imagePath: imagePath
+            }, (games) => getAppContext().innerHTML = GameConsoles(games))
           }
 
           //add console modal

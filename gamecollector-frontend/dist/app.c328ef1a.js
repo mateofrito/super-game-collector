@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/utils/events/event-actions.js":[function(require,module,exports) {
+})({"utils/events/event-actions.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -135,7 +135,7 @@ var _default = {
   on: on
 };
 exports.default = _default;
-},{}],"js/utils/api/api-actions.js":[function(require,module,exports) {
+},{}],"utils/api/api-actions.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -171,7 +171,7 @@ var _default = {
   postRequest: postRequest
 };
 exports.default = _default;
-},{}],"js/components/Games.js":[function(require,module,exports) {
+},{}],"components/Games.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -184,7 +184,7 @@ function Games(games) {
     return "\n                <li class=\"game\">\n                    <img class=\"game__imagepath\" src=\"".concat(game.imagePath, "\"></img>\n                    <p><h3 class=\"game__title\">").concat(game.gameTitle, "</h3>\n                    <h5 class=\"game__yearreleased\">").concat(game.yearReleased, "</h5></p>\n                </li>\n            ");
   }).join('');
 }
-},{}],"js/components/GameConsoles.js":[function(require,module,exports) {
+},{}],"components/GameConsoles.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -240,7 +240,7 @@ function GameConsoles(gameconsoles) {
 //             text="${gameconsole.consoleName}">
 //     </option>
 //  </select> --!>
-},{"./Games":"js/components/Games.js"}],"js/app.js":[function(require,module,exports) {
+},{"./Games":"components/Games.js"}],"app.js":[function(require,module,exports) {
 "use strict";
 
 var _eventActions = _interopRequireDefault(require("./utils/events/event-actions"));
@@ -254,12 +254,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 main();
 
 function main() {
-  _apiActions.default.getRequest('http://localhost:8080/consoles', function (gameconsoles) {
+  _apiActions.default.getRequest('/consoles', function (gameconsoles) {
     getAppContext().innerHTML = (0, _GameConsoles.default)(gameconsoles);
-  });
-
-  _apiActions.default.getRequest('http://localhost:8080/games', function (games) {
-    getAppContext().innerHTML = Games(games);
   });
 
   _eventActions.default.on(getAppContext(), 'click', function () {
@@ -269,27 +265,12 @@ function main() {
       var shortName = document.querySelector('.add-console__short-name').value;
       var imagePath = document.querySelector('.add-console__image-path').value;
 
-      _apiActions.default.postRequest('http://localhost:8080/consoles/add', {
+      _apiActions.default.postRequest('/consoles/add', {
         consoleName: consoleName,
         shortName: shortName,
         imagePath: imagePath
       }, function (gameconsoles) {
         return getAppContext().innerHTML = (0, _GameConsoles.default)(gameconsoles);
-      });
-    } //game submit
-
-
-    if (event.target.classList.contains('add-game__submit')) {
-      var _consoleName = document.querySelector('.add-game__name').value;
-      var _shortName = document.querySelector('.add-game__yearreleased').value;
-      var _imagePath = document.querySelector('.add-game__image-path').value;
-
-      _apiActions.default.postRequest('http://localhost:8080/games/add', {
-        consoleName: _consoleName,
-        shortName: _shortName,
-        imagePath: _imagePath
-      }, function (games) {
-        return getAppContext().innerHTML = (0, _GameConsoles.default)(games);
       });
     } //add console modal
 
@@ -400,7 +381,7 @@ function getAppContext() {
 //   const consoleName = document.querySelection('.add-game__console').value
 //   const imagePath = document.querySelection('.add-image__path').value
 // }
-},{"./utils/events/event-actions":"js/utils/events/event-actions.js","./utils/api/api-actions":"js/utils/api/api-actions.js","./components/GameConsoles":"js/components/GameConsoles.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./utils/events/event-actions":"utils/events/event-actions.js","./utils/api/api-actions":"utils/api/api-actions.js","./components/GameConsoles":"components/GameConsoles.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -603,5 +584,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","js/app.js"], null)
-//# sourceMappingURL=/app.c3f9f951.js.map
+},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","app.js"], null)
+//# sourceMappingURL=/app.c328ef1a.js.map
