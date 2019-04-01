@@ -80,11 +80,32 @@ public class GameController {
 		
 		
 	}
+	 //remove games
 	
-	@DeleteMapping("/delete")
-		public Game deleteGame(@PathVariable Long id){
-		Game gameToDelete = gameRepo.findById(id).get();
-		return gameToDelete;
+//	@DeleteMapping("/delete")
+//		public Collection<Game> deleteGame(@PathVariable Long id){
+//		
+//		Game gameToDelete = gameRepo.findById(id).get();
+//		
+//		gameRepo.delete(gameToDelete);
+//		return(Collection<Game>) gameRepo.findAll();
+//	}
+	
+	@PostMapping("/delete")
+		public Collection<Game> removeGame(@RequestBody String body) throws JSONException{
+			JSONObject gameDelete = new JSONObject(body);
+			String gameId = gameDelete.getString("gameId");
+			Game game = gameRepo.findById(Long.parseLong(gameDelete.getString("gameId"))).get();
+			game.removePublisher();
+			gameRepo.delete(game);
+			return (Collection<Game>) gameRepo.findAll();
+			
+		
+	
+		
+		
 	}
+	
+	
 
 }

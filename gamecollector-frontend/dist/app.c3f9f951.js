@@ -317,11 +317,14 @@ function main() {
   _eventActions.default.on(getAppContext(), 'click', function () {
     //delete game
     if (event.target.classList.contains('delete-game__btn')) {
-      var gameId = document.querySelector('.delete-game__btn').id;
+      var gameId = event.target.parentElement.querySelector('.delete-game__btn').id;
       console.log(gameId);
 
-      _apiActions.default.deleteRequest("http://localhost:8080/games/delete/" + gameId, function (gameconsoles) {
-        getAppContext().innerHTML = (0, _GameConsoles.default)(gameconsoles);
+      _apiActions.default.postRequest("http://localhost:8080/games/delete", {
+        gameId: gameId
+      }, function (games) {
+        getAppContext().innerHTML = (0, _Games.default)(games);
+        location.reload();
       });
     }
   });
@@ -511,7 +514,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52497" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58459" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

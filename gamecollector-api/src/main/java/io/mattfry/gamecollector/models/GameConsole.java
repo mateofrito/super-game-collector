@@ -72,6 +72,11 @@ public class GameConsole {
 	public Collection<Company> getCompany() {
 		return company;
 	}
+	
+	public void deleteGameFromConsole() {
+		this.games = null;
+		
+	}
 
 
 

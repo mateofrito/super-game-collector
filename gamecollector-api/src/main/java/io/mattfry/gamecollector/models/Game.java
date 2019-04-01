@@ -50,6 +50,16 @@ public class Game {
 			this.company = Arrays.asList(company);
 
 	}
+	//remove game, anthony says I need to break it's links from the console and publisher
+	public void removePublisher() {
+		for (Company company: company) {
+			company.removeGamefromCompany(this);
+		}
+		 
+			gameConsole.deleteGameFromConsole();
+		
+	}
+	
 	
 	public GameConsole getGameConsole(){
 		return gameConsole;
@@ -76,6 +86,7 @@ public class Game {
 	}
 	
 	
+	
 
 
 
@@ -98,6 +109,14 @@ public class Game {
 		return "Game [id=" + id + ", gameTitle=" + gameTitle + ", yearReleased=" + yearReleased + ", imagePath="
 				+ imagePath + "]";
 	}
+
+
+
+
+
+
+
+
 	
 	
 
