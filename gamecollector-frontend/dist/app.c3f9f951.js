@@ -166,9 +166,22 @@ function postRequest(location, requestBody, callback) {
   });
 }
 
+function deleteRequest(location, callback) {
+  fetch(location, {
+    method: "DELETE"
+  }).then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    return callback(data);
+  }).catch(function (err) {
+    return console.log(err);
+  });
+}
+
 var _default = {
   getRequest: getRequest,
-  postRequest: postRequest
+  postRequest: postRequest,
+  deleteRequest: deleteRequest
 };
 exports.default = _default;
 },{}],"js/components/Games.js":[function(require,module,exports) {
@@ -197,8 +210,10 @@ var _Games = _interopRequireDefault(require("./Games"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function GameConsoles(gameconsoles) {
-  return "\n    <div class=\"buttons\">\n        <button class=\"console-trigger\">Add Console</button>\n        <button class=\"game-trigger\">Add Game</button>\n    </div>\n    <div class =\"modal-console\">\n        <div class=\"consolemodal-content\">\n                <span class=\"close-button\">X</span>\n                <input type=\"text\" class=\"add-console__full-name\" placeholder=\"Console Name\">\n                <input type=\"text\" class=\"add-console__short-name\" placeholder=\"Console Short Name\">\n                <input type=\"text\" class=\"add-console__image-path\" placeholder=\"image URL\">\n                <button class=\"add-console__submit\">Add Console</button>\n        </div>\n   </div>\n   <div class =\"modal-game\">\n               <div class=\"gamemodal-content\">\n                       <span class=\"close-button2\">X</span>\n                         <input type=\"text\" class=\"add-game__name\" placeholder=\"Name\">\n                         <input type=\"text\" class=\"add-game__yearreleased\" placeholder=\"Year Released\">\n                     \n                         <button class=\"add-game__submit\">Add Game</button>\n                 </div>\n   </div>\n      <ul class=\"consoles\">\n        ".concat(gameconsoles.map(function (gameconsole) {
-    return "\n           <li class=\"console\">\n            <section class=\"console__header\">\n                <img class=\"console__imagepath\" src=\"".concat(gameconsole.imagePath, "\"></img>\n                <h3 class=\"console__name\">").concat(gameconsole.consoleName, "</h3>\n            </section>\n            <ul class=\"games\">\n            ").concat((0, _Games.default)(gameconsole.game), "\n            </ul>\n            </li>\n            ");
+  return "\n    <div class=\"buttons\">\n        <button class=\"console-trigger\">Add Console</button>\n        <button class=\"game-trigger\">Add Game</button>\n        <button class=\"company-trigger\">Add Publisher/Manufacture</button>\n        <button class=\"remove-game\">Delete Games</button>\n    </div>\n    <div class =\"modal-console\">\n        <div class=\"consolemodal-content\">\n                <span class=\"close-button\">X</span>\n                <input type=\"text\" class=\"add-console__full-name\" placeholder=\"Console Name\">\n                <input type=\"text\" class=\"add-console__short-name\" placeholder=\"Console Short Name\">\n                <input type=\"text\" class=\"add-console__image-path\" placeholder=\"image URL\">\n                <input type=\"text\" class=\"add-game_manufacture\" placeholder=\"Manufacturer\">\n                <button class=\"add-console__submit\">Add Console</button>\n        </div>\n   </div>\n   <div class =\"modal-game\">\n               <div class=\"gamemodal-content\">\n                       <span class=\"close-button2\">X</span>\n                         <input type=\"text\" class=\"add-game__name\" placeholder=\"Game Title\">\n                         <input type=\"text\" class=\"add-game__yearreleased\" placeholder=\"Year Released\">\n                         <input type=\"text\" class=\"add-game_publisher\" placeholder=\"Publisher\">\n                         <input type=\"text\" class=\"add-console__forgames\" placeholder=\"Console\">\n                         <input type=\"text\" class=\"add-game__image-path\" placeholder=\"Image URL\">\n                         <button class=\"add-game__submit\">Add Game</button>\n                 </div>\n   </div>\n   <div class =\"modal-company\">\n   <div class=\"companymodal-content\">\n           <span class=\"close-button3\">X</span>\n           <input type=\"text\" class=\"add-company__name\" placeholder=\"Company Name\">\n           <input type=\"text\" class=\"add-company__image-path\" placeholder=\"Company Logo\">\n           \n           \n           <button class=\"add-company__submit\">Add Company</button>\n   </div>\n</div>\n   \n      <ul class=\"consoles\">\n        ".concat(gameconsoles.map(function (gameconsole) {
+    console.log(gameconsole);
+    console.log(gameconsole.games);
+    return "\n           <li class=\"console\">\n            <section class=\"console__header\">\n                <img class=\"console__imagepath\" src=\"".concat(gameconsole.imagePath, "\"></img>\n                <h3 class=\"console__name\">").concat(gameconsole.consoleName, "</h3>\n            </section>\n            <ul class=\"games\">\n            ").concat((0, _Games.default)(gameconsole.games), "\n            </ul>\n            </li>\n            ");
   }).join(''), "\n         \n          ");
 } // var consolemodal = document.querySelector(".modal-console");
 // var consoletrigger = document.querySelector(".console-trigger")
@@ -240,14 +255,46 @@ function GameConsoles(gameconsoles) {
 //             text="${gameconsole.consoleName}">
 //     </option>
 //  </select> --!>
-},{"./Games":"js/components/Games.js"}],"js/app.js":[function(require,module,exports) {
+},{"./Games":"js/components/Games.js"}],"js/components/Company.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Company;
+
+function Company(company) {
+  return "\n        <ul id=\"tags\">\n            ".concat(company.map(function (company) {
+    return "\n                    <li class=\"tag\">".concat(company.companyName, "</li>\n                ");
+  }).join(''), "\n        </ul>\n        \n        ");
+}
+},{}],"js/components/MaintGames.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = EditGames;
+
+function EditGames(games) {
+  return games.map(function (game) {
+    return "\n        <div class=\"editgame__content\">    \n            <li class=\"editgame\">\n                    <img class=\"editgame__imagepath\" src=\"".concat(game.imagePath, "\"></img>\n                    <p><h3 class=\"editgame__title\">").concat(game.gameTitle, "</h3>\n                    <button class=\"delete-game__btn\" id=\"").concat(game.id, "\">Delete Game</button>\n                </li>\n\n                ");
+  }).join('');
+}
+},{}],"js/app.js":[function(require,module,exports) {
 "use strict";
 
 var _eventActions = _interopRequireDefault(require("./utils/events/event-actions"));
 
 var _apiActions = _interopRequireDefault(require("./utils/api/api-actions"));
 
+var _Games = _interopRequireDefault(require("./components/Games"));
+
 var _GameConsoles = _interopRequireDefault(require("./components/GameConsoles"));
+
+var _Company = _interopRequireDefault(require("./components/Company"));
+
+var _MaintGames = _interopRequireDefault(require("./components/MaintGames"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -256,10 +303,50 @@ main();
 function main() {
   _apiActions.default.getRequest('http://localhost:8080/consoles', function (gameconsoles) {
     getAppContext().innerHTML = (0, _GameConsoles.default)(gameconsoles);
+  }); //game edit menu
+
+
+  _eventActions.default.on(getAppContext(), 'click', function () {
+    if (event.target.classList.contains('remove-game')) {
+      _apiActions.default.getRequest('http://localhost:8080/games', function (games) {
+        getAppContext().innerHTML = (0, _MaintGames.default)(games);
+      });
+    }
   });
 
-  _apiActions.default.getRequest('http://localhost:8080/games', function (games) {
-    getAppContext().innerHTML = Games(games);
+  _eventActions.default.on(getAppContext(), 'click', function () {
+    //delete game
+    if (event.target.classList.contains('delete-game__btn')) {
+      var gameId = document.querySelector('.delete-game__btn').id;
+      console.log(gameId);
+
+      _apiActions.default.deleteRequest("http://localhost:8080/games/delete/" + gameId, function (gameconsoles) {
+        getAppContext().innerHTML = (0, _GameConsoles.default)(gameconsoles);
+      });
+    }
+  });
+
+  _eventActions.default.on(getAppContext(), 'click', function () {
+    //game submit
+    if (event.target.classList.contains('add-game__submit')) {
+      var gameTitle = document.querySelector('.add-game__name').value;
+      var yearReleased = document.querySelector('.add-game__yearreleased').value;
+      var imagePath = document.querySelector('.add-game__image-path').value;
+      var gameConsole = document.querySelector('.add-console__forgames').value;
+      var company = document.querySelector('.add-game_publisher').value;
+
+      _apiActions.default.postRequest('http://localhost:8080/games/add', {
+        gameTitle: gameTitle,
+        yearReleased: yearReleased,
+        imagePath: imagePath,
+        company: company,
+        gameConsole: gameConsole
+      }, function (games) {
+        return getAppContext().innerHTML = (0, _Games.default)(games);
+      });
+
+      location.reload();
+    }
   });
 
   _eventActions.default.on(getAppContext(), 'click', function () {
@@ -268,32 +355,37 @@ function main() {
       var consoleName = document.querySelector('.add-console__full-name').value;
       var shortName = document.querySelector('.add-console__short-name').value;
       var imagePath = document.querySelector('.add-console__image-path').value;
+      var companyName = document.querySelector('.add-game_manufacture').value;
 
       _apiActions.default.postRequest('http://localhost:8080/consoles/add', {
         consoleName: consoleName,
         shortName: shortName,
-        imagePath: imagePath
+        imagePath: imagePath,
+        companyName: companyName
       }, function (gameconsoles) {
         return getAppContext().innerHTML = (0, _GameConsoles.default)(gameconsoles);
       });
-    } //game submit
+    }
+  });
 
+  _eventActions.default.on(getAppContext(), 'click', function () {
+    //company submit
+    if (event.target.classList.contains('add-company__submit')) {
+      var company = document.querySelector('.add-company__name').value;
+      var imagePath = document.querySelector('.add-company__image-path').value;
 
-    if (event.target.classList.contains('add-game__submit')) {
-      var _consoleName = document.querySelector('.add-game__name').value;
-      var _shortName = document.querySelector('.add-game__yearreleased').value;
-      var _imagePath = document.querySelector('.add-game__image-path').value;
-
-      _apiActions.default.postRequest('http://localhost:8080/games/add', {
-        consoleName: _consoleName,
-        shortName: _shortName,
-        imagePath: _imagePath
-      }, function (games) {
-        return getAppContext().innerHTML = (0, _GameConsoles.default)(games);
+      _apiActions.default.postRequest('http://localhost:8080/company/add', {
+        company: company,
+        imagePath: imagePath
+      }, function (company) {
+        return getAppContext().innerHTML = (0, _Company.default)(company);
       });
-    } //add console modal
 
+      location.reload();
+    }
+  });
 
+  _eventActions.default.on(getAppContext(), 'click', function () {
     if (event.target.classList.contains('console-trigger')) {
       var toggleConsoleModal = function toggleConsoleModal() {
         consolemodal.classList.toggle("show-consolemodal");
@@ -353,54 +445,45 @@ function main() {
       var closeButton = document.querySelector(".close-button2");
       var gamemodal = document.querySelector(".modal-game");
       closeButton.addEventListener("click", _closeTheGoddamnModal);
-    } //console accordions
+    } //add company modal
 
 
-    if (event.target.classList.contains('console__header')) {
-      var accordion = document.getElementsByClassName("console__header");
-      var i;
+    if (event.target.classList.contains('company-trigger')) {
+      var toggleCompanyModal = function toggleCompanyModal() {
+        companymodal.classList.toggle("show-companymodal");
+      };
 
-      for (i = 0; i < accordion.length; i++) {
-        accordion[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var panel = this.nextElementSibling;
+      var windowOnCompanyClick = function windowOnCompanyClick(event) {
+        if (event.target === companymodal) {
+          toggleCompanyModal();
+        }
+      };
 
-          if (panel.style.display === "block") {
-            panel.style.display = "none";
-          } else {
-            panel.style.display = "block";
-          }
-        });
-      }
+      var companymodal = document.querySelector(".modal-company");
+      var companytrigger = document.querySelector(".company-trigger");
+      var closeButton3 = document.querySelector(".close-button3");
+      companytrigger.addEventListener("click", toggleCompanyModal);
+      closeButton3.addEventListener("click", toggleCompanyModal);
+      window.addEventListener("click", windowOnCompanyClick);
+    } //company close button
+
+
+    if (event.target.classList.contains('close-button3')) {
+      var _closeTheGoddamnModal2 = function _closeTheGoddamnModal2() {
+        companymodal.classList.toggle("show-companymodal");
+      };
+
+      var closeButton = document.querySelector(".close-button3");
+      var companymodal = document.querySelector(".modal-company");
+      closeButton.addEventListener("click", _closeTheGoddamnModal2);
     }
   });
 }
 
 function getAppContext() {
   return document.querySelector("#app");
-} // if (event.target.classList.contains('console-trigger')){
-//   var consolemodal = document.querySelector(".modal-console");
-//   var consoletrigger = document.querySelector(".console-trigger")
-//   var closeButton = document.querySelector(".close-button");
-//   function toggleConsoleModal() {
-//     consolemodal.classList.toggle("show-consolemodal");
-//   }
-//   function windowOnConsoleClick(event) {
-//           if (event.target === consolemodal) {
-//             toggleConsoleModal();
-//           }
-//   }
-//   consoletrigger.addEventListener("click", toggleConsoleModal);
-//   closeButton.addEventListener("click", toggleConsoleModal);
-//   window.addEventListener("click", windowOnConsoleClick);
-// }
-// if (event.target.classList.contains('add-game__submit')) {
-//   const gameName = document.querySelector('.add-game__name').value
-//   const yearReleased = document.querySelection('.add-game__yearreleased').value
-//   const consoleName = document.querySelection('.add-game__console').value
-//   const imagePath = document.querySelection('.add-image__path').value
-// }
-},{"./utils/events/event-actions":"js/utils/events/event-actions.js","./utils/api/api-actions":"js/utils/api/api-actions.js","./components/GameConsoles":"js/components/GameConsoles.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+}
+},{"./utils/events/event-actions":"js/utils/events/event-actions.js","./utils/api/api-actions":"js/utils/api/api-actions.js","./components/Games":"js/components/Games.js","./components/GameConsoles":"js/components/GameConsoles.js","./components/Company":"js/components/Company.js","./components/MaintGames":"js/components/MaintGames.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -428,7 +511,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57326" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52497" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -603,5 +686,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","js/app.js"], null)
+},{}]},{},["../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/app.js"], null)
 //# sourceMappingURL=/app.c3f9f951.js.map

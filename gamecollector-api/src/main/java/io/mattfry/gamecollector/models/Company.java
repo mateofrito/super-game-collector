@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,10 +19,12 @@ public class Company {
 	private String companyName;
 	private String imagePath;
 	
-	@OneToMany(mappedBy="company")
+	@ManyToMany(mappedBy="company")
+	@JsonIgnore
 	private Collection<GameConsole> gameConsole;
 	
-	@OneToMany(mappedBy="company")
+	@ManyToMany(mappedBy="company")
+	@JsonIgnore
 	private Collection<Game> games;
 	
 	
