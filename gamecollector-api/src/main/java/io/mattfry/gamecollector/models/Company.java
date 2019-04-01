@@ -70,6 +70,11 @@ public class Company {
 	public String toString() {
 		return "Company [id=" + id + ", companyName=" + companyName + ", imagePath=" + imagePath + "]";
 	}
+
+	public void removeGamefromCompany(Game game) {
+		games.remove(game);
+		
+	}
 	
 	
 
