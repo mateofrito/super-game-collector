@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.wecancodeit.albumapp.models.Artist;
 
 import io.mattfry.gamecollector.models.Company;
 import io.mattfry.gamecollector.models.Game;
@@ -49,10 +50,11 @@ public class GameController {
 		String yearReleased = json.getString("yearReleased");
 		String imagePath = json.getString("imagePath");
 		String companyNameString = json.getString("company");
-		String gameConsoleString = json.getString("gameConsole");
+		//String gameConsoleString = json.getString("gameConsole");
 		
 		Company company = companyRepo.findByCompanyName(companyNameString);
-		GameConsole gameConsole = consoleRepo.findByConsoleName(gameConsoleString);
+		//GameConsole gameConsole = consoleRepo.findByConsoleName(gameConsoleString);
+		GameConsole gameConsole = consoleRepo.findById(Long.parseLong(json.getString("gameConsole"))).get();
 		
 		if (imagePath.isEmpty()) {
 			imagePath = "http://mattfry.io/consoleicons/consolegeneric.png";
@@ -63,10 +65,7 @@ public class GameController {
 			companyNameString ="unknown";
 		}
 		
-		if (gameConsoleString.isEmpty()) {
-			gameConsoleString = "unknownconsole";
-			
-		}
+		
 		
 		
 		

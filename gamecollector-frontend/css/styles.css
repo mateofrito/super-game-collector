@@ -16,8 +16,13 @@
 
   }
 
-  .buttons{
+
+
+  .nav--buttons{
     margin-top: 79px;
+    background-color: black;
+    color: white;
+    font-family:  'Oswald', sans-serif;
   }
 
   .console__name{
@@ -51,20 +56,37 @@
 
   }
 
-  .header__title{
-      padding-left: 10px;
-      font-size: 2.8vw;
+  .modal__header{
+    font-family: mariofont;
+    src: url(./SuperMarioBrosNES.ttf);
   }
 
+  .header__title{
+      padding-left: 10px;
+      font-size: 32px;
+      padding-bottom: 15px;
+  }
+  @media screen and (max-width: 738px){
+    .header__title{
+        font-size: 24px;
+        padding-top: 10px;
+    }
+  }
+    @media screen and (max-width: 560px){
+.header__title{
+  padding-top: px;
+  padding-bottom: 5px;
+}
+    }
+  
   .mario:hover {
       background-color: #9290ff;
 
   }
 
-  .app{
-      margin-top: 79px;
-      align-items: center;
-      text-align: center;
+  #app{
+    margin-top: 80px;
+     
   }
     .console{
         
@@ -92,20 +114,38 @@
     .game__imagepath{
         
         max-width: 100px;;
-        width: 100%
+        width: 100%;
     }
     .game-trigger{
-      font-size: 2.2vh;
+      font-size: 2.5vh;
+      padding-left: 10px;
+      padding-right: 10px;
+      cursor: pointer;
     }
     .console-trigger{
-        font-size: 2.2vh;
+        font-size: 2.5vh;
+        padding-left: 10px;
+      padding-right: 10px;
+      cursor: pointer;
         
       }
       .company-trigger{
-        font-size: 2.2vh;
+        font-size: 2.5vh;
+        padding-left: 10px;
+      padding-right: 10px;
+      cursor: pointer;
         
       }
-
+      .remove-game{
+        font-size: 2.5vh;
+        padding-left: 10px;
+      padding-right: 10px;
+      cursor: pointer;
+      }
+      .game-trigger:hover, .console-trigger:hover, 
+      .company-trigger:hover, .remove-game:hover{
+        background-color:red;
+      }
 
     .modal-console{
             
@@ -318,21 +358,28 @@
       height: 50px;
       list-style: none;
       
+      
 
 
     }
 
     .editgame__imagepath{
       float: left;
-      max-width: 25px;;
-      width: 100%
-  }
+      max-width: 35px;
+      width: 100%;
+      padding-right:  5px;
+    }
 
   .editgame__title{
     font-family:  'Oswald', sans-serif;
+    margin-top: 5px;
+    margin-left: 5px;
+    
+    margin-right: 1px;
   }
   .delete-game__btn{
     float: right;
+    margin-top: 10px;
   }
 
   .remove-game{

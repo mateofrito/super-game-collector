@@ -51,7 +51,7 @@ function main() {
   
 
 
-  events.on(getAppContext(), 'click', () => {
+   events.on(getAppContext(), 'click', () => {
     //game submit
     if (event.target.classList.contains('add-game__submit')) {
       const gameTitle = document.querySelector('.add-game__name').value
@@ -59,14 +59,16 @@ function main() {
       const imagePath = document.querySelector('.add-game__image-path').value
       const gameConsole = document.querySelector('.add-console__forgames').value
       const company = document.querySelector('.add-game_publisher').value
-
+      
+      console.log(gameConsole)
 
       api.postRequest('http://localhost:8080/games/add', {
+        
         gameTitle: gameTitle,
         yearReleased: yearReleased,
         imagePath: imagePath,
         company: company,
-        gameConsole: gameConsole
+        gameConsole: gameConsole,
       }, (games) => getAppContext().innerHTML = Games(games))
       location.reload()
     }

@@ -197,6 +197,19 @@ function Games(games) {
     return "\n                <li class=\"game\">\n                    <img class=\"game__imagepath\" src=\"".concat(game.imagePath, "\"></img>\n                    <p><h3 class=\"game__title\">").concat(game.gameTitle, "</h3>\n                    <h5 class=\"game__yearreleased\">").concat(game.yearReleased, "</h5></p>\n                </li>\n            ");
   }).join('');
 }
+},{}],"js/components/CompanyOptions.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = CompanyOptions;
+
+function CompanyOptions(gameconsoles) {
+  return gameconsoles.map(function (gameconsole) {
+    return "   \n            <option value=".concat(gameconsole.id, ">").concat(gameconsole.name, "</option>    \n            ");
+  }).join("");
+}
 },{}],"js/components/GameConsoles.js":[function(require,module,exports) {
 "use strict";
 
@@ -207,55 +220,20 @@ exports.default = GameConsoles;
 
 var _Games = _interopRequireDefault(require("./Games"));
 
+var _CompanyOptions = _interopRequireDefault(require("./CompanyOptions"));
+
+var _apiActions = _interopRequireDefault(require("../utils/api/api-actions"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function GameConsoles(gameconsoles) {
-  return "\n    <div class=\"buttons\">\n        <button class=\"console-trigger\">Add Console</button>\n        <button class=\"game-trigger\">Add Game</button>\n        <button class=\"company-trigger\">Add Publisher/Manufacture</button>\n        <button class=\"remove-game\">Delete Games</button>\n    </div>\n    <div class =\"modal-console\">\n        <div class=\"consolemodal-content\">\n                <span class=\"close-button\">X</span>\n                <input type=\"text\" class=\"add-console__full-name\" placeholder=\"Console Name\">\n                <input type=\"text\" class=\"add-console__short-name\" placeholder=\"Console Short Name\">\n                <input type=\"text\" class=\"add-console__image-path\" placeholder=\"image URL\">\n                <input type=\"text\" class=\"add-game_manufacture\" placeholder=\"Manufacturer\">\n                <button class=\"add-console__submit\">Add Console</button>\n        </div>\n   </div>\n   <div class =\"modal-game\">\n               <div class=\"gamemodal-content\">\n                       <span class=\"close-button2\">X</span>\n                         <input type=\"text\" class=\"add-game__name\" placeholder=\"Game Title\">\n                         <input type=\"text\" class=\"add-game__yearreleased\" placeholder=\"Year Released\">\n                         <input type=\"text\" class=\"add-game_publisher\" placeholder=\"Publisher\">\n                         <input type=\"text\" class=\"add-console__forgames\" placeholder=\"Console\">\n                         <input type=\"text\" class=\"add-game__image-path\" placeholder=\"Image URL\">\n                         <button class=\"add-game__submit\">Add Game</button>\n                 </div>\n   </div>\n   <div class =\"modal-company\">\n   <div class=\"companymodal-content\">\n           <span class=\"close-button3\">X</span>\n           <input type=\"text\" class=\"add-company__name\" placeholder=\"Company Name\">\n           <input type=\"text\" class=\"add-company__image-path\" placeholder=\"Company Logo\">\n           \n           \n           <button class=\"add-company__submit\">Add Company</button>\n   </div>\n</div>\n   \n      <ul class=\"consoles\">\n        ".concat(gameconsoles.map(function (gameconsole) {
-    console.log(gameconsole);
-    console.log(gameconsole.games);
+  return "\n    <div class=\"nav--buttons\">\n        <span class=\"console-trigger\">Add Console</span>\n        <span class=\"game-trigger\">Add Game</span>\n        <span class=\"company-trigger\">Add Publisher/Manufacture</span>\n        <span class=\"remove-game\">Delete Games</span>\n    </div>\n    <div class =\"modal-console\">\n        <div class=\"consolemodal-content\">\n                <span class=\"close-button\">X</span>\n                <input type=\"text\" class=\"add-console__full-name\" placeholder=\"Console Name\">\n                <input type=\"text\" class=\"add-console__short-name\" placeholder=\"Console Short Name\">\n                <input type=\"text\" class=\"add-console__image-path\" placeholder=\"image URL\">\n                <input type=\"text\" class=\"add-game_manufacture\" placeholder=\"Manufacturer\">\n                <button class=\"add-console__submit\">Add Console</button>\n        </div>\n   </div>\n   <div class =\"modal-game\">\n               <div class=\"gamemodal-content\">\n                       <span class=\"close-button2\">X</span>\n                        <h2 class=\"modal__header\">Add Game</h2>\n                         <input type=\"text\" class=\"add-game__name\" placeholder=\"Game Title\">\n                         <input type=\"text\" class=\"add-game__yearreleased\" placeholder=\"Year Released\">\n                         <select type=\"text\" class=\"add-game_publisher\" placeholder=\"Publisher\">\n                                \n                         </select>\n                         <select type=\"select\" class=\"add-console__forgames\" placeholder=\"Select Console\">\n                           ".concat(gameconsoles.map(function (gameconsole) {
+    return "\n                            \n                           <option value=".concat(gameconsole.id, ">").concat(gameconsole.consoleName, "</option>\n                           ");
+  }).join(" "), "\n                           </select>\n                         <input type=\"text\" class=\"add-game__image-path\" placeholder=\"Image URL\">\n                         <button class=\"add-game__submit\">Add Game</button>\n                 </div>\n   </div>\n   <div class =\"modal-company\">\n   <div class=\"companymodal-content\">\n           <span class=\"close-button3\">X</span>\n           <input type=\"text\" class=\"add-company__name\" placeholder=\"Company Name\">\n           <input type=\"text\" class=\"add-company__image-path\" placeholder=\"Company Logo\">\n           \n           \n           <button class=\"add-company__submit\">Add Company</button>\n   </div>\n</div>\n   \n      <ul class=\"consoles\">\n        ").concat(gameconsoles.map(function (gameconsole) {
     return "\n           <li class=\"console\">\n            <section class=\"console__header\">\n                <img class=\"console__imagepath\" src=\"".concat(gameconsole.imagePath, "\"></img>\n                <h3 class=\"console__name\">").concat(gameconsole.consoleName, "</h3>\n            </section>\n            <ul class=\"games\">\n            ").concat((0, _Games.default)(gameconsole.games), "\n            </ul>\n            </li>\n            ");
-  }).join(''), "\n         \n          ");
-} // var consolemodal = document.querySelector(".modal-console");
-// var consoletrigger = document.querySelector(".console-trigger")
-// var closeButton = document.querySelector(".close-button");
-// function toggleConsoleModal() {
-//   consolemodal.classList.toggle("show-consolemodal");
-// }
-// function windowOnClick(event) {
-//   if (event.target === consolemodal) {
-//       toggleConsoleModal();
-//   }
-// }
-// consoletrigger.addEventListener("click", toggleConsoleModal);
-// closeButton.addEventListener("click", toggleConsoleModal);
-// window.addEventListener("click", windowOnClick);
-//     <li class="console">
-//     <button class="console-trigger">Add Console</button>
-// <button class="game-trigger">Add Console</button>
-//    <div class ="modal-console">
-//         <div class="consolemodal-content">
-//                 <span class="close-button">X</span>
-//                 <input type="text" class="add-console__full-name" placeholder="Console Name">
-//                 <input type="text" class="add-console__short-name" placeholder="Console Short Name">
-//                 <button class="add-console__submit">Add Console</button>
-//         </div>
-//   </div>
-//   <div class ="modal-game">
-//        <div class="gamemodal-content">
-//                <span class="close-button">X</span>
-//                  <input type="text" class="add-game__name" placeholder="Name">
-//                  <input type="text" class="add-game__yearreleased" placeholder="Year Released">
-//                  <select class="add-game__console" placeholder="Console">${gameconsole.consoleName}</select>
-//                  <button class="add-game__submit">Add Game</button>
-//          </div>
-//    </div>
-//     <!--  <select class="add-game__console" placeholder="Console">
-//     <option value="0">Select Console</option>
-//     <option value="${gameconsole.consoleName}"
-//             text="${gameconsole.consoleName}">
-//     </option>
-//  </select> --!>
-},{"./Games":"js/components/Games.js"}],"js/components/Company.js":[function(require,module,exports) {
+  }).join(""), "\n         \n          ");
+}
+},{"./Games":"js/components/Games.js","./CompanyOptions":"js/components/CompanyOptions.js","../utils/api/api-actions":"js/utils/api/api-actions.js"}],"js/components/Company.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -278,8 +256,8 @@ exports.default = EditGames;
 
 function EditGames(games) {
   return games.map(function (game) {
-    return "\n        <div class=\"editgame__content\">    \n            <li class=\"editgame\">\n                    <img class=\"editgame__imagepath\" src=\"".concat(game.imagePath, "\"></img>\n                    <p><h3 class=\"editgame__title\">").concat(game.gameTitle, "</h3>\n                    <button class=\"delete-game__btn\" id=\"").concat(game.id, "\">Delete Game</button>\n                </li>\n\n                ");
-  }).join('');
+    return "\n        <div class=\"editgame__content\">    \n            <li class=\"editgame\">\n                    <img class=\"editgame__imagepath\" src=\"".concat(game.imagePath, "\"></img>\n                    <h3 class=\"editgame__title\">").concat(game.gameTitle, "\n                    <button class=\"delete-game__btn\" id=\"").concat(game.id, "\">Delete Game</button></h3>\n            </li>\n\n                ");
+  }).join("");
 }
 },{}],"js/app.js":[function(require,module,exports) {
 "use strict";
@@ -337,6 +315,7 @@ function main() {
       var imagePath = document.querySelector('.add-game__image-path').value;
       var gameConsole = document.querySelector('.add-console__forgames').value;
       var company = document.querySelector('.add-game_publisher').value;
+      console.log(gameConsole);
 
       _apiActions.default.postRequest('http://localhost:8080/games/add', {
         gameTitle: gameTitle,
@@ -514,7 +493,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58459" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51250" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

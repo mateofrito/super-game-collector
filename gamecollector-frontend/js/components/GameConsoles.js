@@ -1,12 +1,14 @@
-import Games from './Games'
+import Games from "./Games";
+import CompanyOptions from "./CompanyOptions";
+import apiActions from "../utils/api/api-actions";
 
 export default function GameConsoles(gameconsoles) {
-    return `
-    <div class="buttons">
-        <button class="console-trigger">Add Console</button>
-        <button class="game-trigger">Add Game</button>
-        <button class="company-trigger">Add Publisher/Manufacture</button>
-        <button class="remove-game">Delete Games</button>
+  return `
+    <div class="nav--buttons">
+        <span class="console-trigger">Add Console</span>
+        <span class="game-trigger">Add Game</span>
+        <span class="company-trigger">Add Publisher/Manufacture</span>
+        <span class="remove-game">Delete Games</span>
     </div>
     <div class ="modal-console">
         <div class="consolemodal-content">
@@ -21,10 +23,24 @@ export default function GameConsoles(gameconsoles) {
    <div class ="modal-game">
                <div class="gamemodal-content">
                        <span class="close-button2">X</span>
+                        <h2 class="modal__header">Add Game</h2>
                          <input type="text" class="add-game__name" placeholder="Game Title">
                          <input type="text" class="add-game__yearreleased" placeholder="Year Released">
-                         <input type="text" class="add-game_publisher" placeholder="Publisher">
-                         <input type="text" class="add-console__forgames" placeholder="Console">
+                         <select type="text" class="add-game_publisher" placeholder="Publisher">
+                                
+                         </select>
+                         <select type="select" class="add-console__forgames" placeholder="Select Console">
+                           ${gameconsoles
+                             .map(gameconsole => {
+                               return `
+                            
+                           <option value=${gameconsole.id}>${
+                                 gameconsole.consoleName
+                               }</option>
+                           `;
+                             })
+                             .join(" ")}
+                           </select>
                          <input type="text" class="add-game__image-path" placeholder="Image URL">
                          <button class="add-game__submit">Add Game</button>
                  </div>
@@ -41,13 +57,14 @@ export default function GameConsoles(gameconsoles) {
 </div>
    
       <ul class="consoles">
-        ${gameconsoles.map(gameconsole => {
-          console.log(gameconsole)
-          console.log(gameconsole.games)
+        ${gameconsoles
+          .map(gameconsole => {
             return `
            <li class="console">
             <section class="console__header">
-                <img class="console__imagepath" src="${gameconsole.imagePath}"></img>
+                <img class="console__imagepath" src="${
+                  gameconsole.imagePath
+                }"></img>
                 <h3 class="console__name">${gameconsole.consoleName}</h3>
             </section>
             <ul class="games">
@@ -55,52 +72,8 @@ export default function GameConsoles(gameconsoles) {
             </ul>
             </li>
             `;
-          }).join('')}
+          })
+          .join("")}
          
           `;
-        }
-
-        // var consolemodal = document.querySelector(".modal-console");
-        // var consoletrigger = document.querySelector(".console-trigger")
-        // var closeButton = document.querySelector(".close-button");
-
-        // function toggleConsoleModal() {
-        //   consolemodal.classList.toggle("show-consolemodal");
-        // }
-
-        // function windowOnClick(event) {
-        //   if (event.target === consolemodal) {
-        //       toggleConsoleModal();
-        //   }
-        // }
-
-        // consoletrigger.addEventListener("click", toggleConsoleModal);
-        // closeButton.addEventListener("click", toggleConsoleModal);
-        // window.addEventListener("click", windowOnClick);
-        //     <li class="console">
-        //     <button class="console-trigger">Add Console</button>
-        // <button class="game-trigger">Add Console</button>
-        //    <div class ="modal-console">
-        //         <div class="consolemodal-content">
-        //                 <span class="close-button">X</span>
-        //                 <input type="text" class="add-console__full-name" placeholder="Console Name">
-        //                 <input type="text" class="add-console__short-name" placeholder="Console Short Name">
-        //                 <button class="add-console__submit">Add Console</button>
-        //         </div>
-        //   </div>
-        //   <div class ="modal-game">
-        //        <div class="gamemodal-content">
-        //                <span class="close-button">X</span>
-        //                  <input type="text" class="add-game__name" placeholder="Name">
-        //                  <input type="text" class="add-game__yearreleased" placeholder="Year Released">
-        //                  <select class="add-game__console" placeholder="Console">${gameconsole.consoleName}</select>
-        //                  <button class="add-game__submit">Add Game</button>
-        //          </div>
-        //    </div>
-
-    //     <!--  <select class="add-game__console" placeholder="Console">
-    //     <option value="0">Select Console</option>
-    //     <option value="${gameconsole.consoleName}"
-    //             text="${gameconsole.consoleName}">
-    //     </option>
-    //  </select> --!>
+}
