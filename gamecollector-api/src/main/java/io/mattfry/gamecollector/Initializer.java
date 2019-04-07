@@ -57,29 +57,40 @@ public class Initializer implements CommandLineRunner {
 		
 		
 		
-		Game game4 = gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", console1 , company1));
-		Game game5 = gameRepo.save(new Game("Super Mario Bros 2", "1987", "http://mattfry.io/gameimages/smb2.jpg", console1, company1));
-		Game game1 = gameRepo.save(new Game("Super Mario Bros 3", "1989", "http://mattfry.io/gameimages/smb3.jpg", console1, company1));
-		Game game2 = gameRepo.save(new Game("Super Mario World", "1992", "http://mattfry.io/gameimages/smw.jpg", console2, company1));
-		Game game6 = gameRepo.save(new Game("Super Mario World 2: Yoshi's Island", "1994", "http://mattfry.io/gameimages/smw2.jpg" ,console2, company1));
-		Game game3 = gameRepo.save(new Game("Super Mario 64", "1996", "http://mattfry.io/gameimages/sm64.jpg" , console3, company1));
-		Game game7 = gameRepo.save(new Game("Super Mario Sunshine", "2001", "http://mattfry.io/gameimages/sms.jpg", console4, company1));
-		Game game8 = gameRepo.save(new Game("Paper Mario: And the Thousand Year Door", "2003", "http://mattfry.io/gameimages/papermario1000.jpg", console4, company1));
-		Game game9 = gameRepo.save(new Game("Super Mario Galaxy", "2008", "http://mattfry.io/gameimages/smg1.jpg", console5, company1));
-		Game game10 = gameRepo.save(new Game("Super Mario Galaxy 2", "2010", "http://mattfry.io/gameimages/smg2.jpg", console5, company1));
-		Game game11 = gameRepo.save(new Game("New Super Mario Bros. Wii", "2009", "http://mattfry.io/gameimages/nsmwii.jpg", console5, company1));
-		Game game12 = gameRepo.save(new Game("New Super Mario Bros. U", "2012", "http://mattfry.io/gameimages/nsmbu.jpg", console7, company1));
-		Game game13 = gameRepo.save(new Game("Super Mario 3D World", "2014", "http://mattfry.io/gameimages/sm3Dw.jpg", console7, company1));
-		Game game14 = gameRepo.save(new Game("Paper Mario", "1997", "http://mattfry.io/gameimages/papermario64.jpg", console3, company1));
-		Game game15 = gameRepo.save(new Game("The Legend of Zelda", "1986", "http://mattfry.io/gameimages/zelda1.png", console1, company1));
-		Game game16 = gameRepo.save(new Game("The Adventure of Link", "1988", "http://mattfry.io/gameimages/zelda2nes.jpg", console1, company1));
-		Game game17 = gameRepo.save(new Game("The Legend of Zelda: A Link to the Past", "1992", "http://mattfry.io/gameimages/zeldalttpsnses.jpg", console2, company1));
-		Game game18 = gameRepo.save(new Game("The Legend of Zelda: Ocarina of Time", "1997", "http://mattfry.io/gameimages/zeldaocarina64.jpg", console3, company1));
-		Game game19 = gameRepo.save(new Game("The Legend of Zelda: Majora's Mask", "1999", "http://mattfry.io/gameimages/zeldamajora64.jpg", console3, company1));
-		Game game20 = gameRepo.save(new Game("Sonic the Hedgehog", "1988", "http://mattfry.io/gameimages/sonic1segagen.jpg", console13, company4));
-		Game game21 = gameRepo.save(new Game("Sonic the Hedgehog", "1988", "http://mattfry.io/gameimages/sonic1sms.jpg", console15, company4));
-		Game game22 = gameRepo.save(new Game("Sonic the Hedgehog", "1988", "http://mattfry.io/gameimages/sonic1gamegear.jpg", console16, company4));
-		Game game23 = gameRepo.save(new Game("Super Mario Land", "1989", "http://mattfry.io/gameimages/sml.png", console11, company1));
+		Game game4 = gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/titlescreens/supermariobros.png",console1 , company1));
+		Game testgame1= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
+		Game testgame2= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
+		Game testgame3= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
+		Game testgame4= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
+		Game testgame5= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
+		Game testgam61= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
+		Game testgame7= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
+		Game testgame8= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
+		Game testgame9= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
+		Game testgame10= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
+		
+		Game game5 = gameRepo.save(new Game("Super Mario Bros 2", "1987", "http://mattfry.io/gameimages/smb2.jpg", "http://mattfry.io/gameimages/smb2.jpg",console1, company1));
+		Game game1 = gameRepo.save(new Game("Super Mario Bros 3", "1989", "http://mattfry.io/gameimages/smb3.jpg", "http://mattfry.io/gameimages/smb3.jpg",console1, company1));
+		Game game2 = gameRepo.save(new Game("Super Mario World", "1992", "http://mattfry.io/gameimages/smw.jpg", "http://mattfry.io/gameimages/smw.jpg",console2, company1));
+		Game game6 = gameRepo.save(new Game("Super Mario World 2: Yoshi's Island", "1994", "http://mattfry.io/gameimages/smw2.jpg" ,"http://mattfry.io/gameimages/smw2.jpg" ,console2, company1));
+		Game game3 = gameRepo.save(new Game("Super Mario 64", "1996", "http://mattfry.io/gameimages/sm64.jpg" ,"http://mattfry.io/gameimages/sm64.jpg" , console3, company1));
+		Game game7 = gameRepo.save(new Game("Super Mario Sunshine", "2001", "http://mattfry.io/gameimages/sms.jpg", "http://mattfry.io/gameimages/sms.jpg", console4, company1));
+		Game game8 = gameRepo.save(new Game("Paper Mario: And the Thousand Year Door", "2003", "http://mattfry.io/gameimages/papermario1000.jpg", "http://mattfry.io/gameimages/papermario1000.jpg", console4, company1));
+		Game game9 = gameRepo.save(new Game("Super Mario Galaxy", "2008", "http://mattfry.io/gameimages/smg1.jpg", "http://mattfry.io/gameimages/smg1.jpg",console5, company1));
+		Game game10 = gameRepo.save(new Game("Super Mario Galaxy 2", "2010", "http://mattfry.io/gameimages/smg2.jpg", "http://mattfry.io/gameimages/smg2.jpg", console5, company1));
+		Game game11 = gameRepo.save(new Game("New Super Mario Bros. Wii", "2009", "http://mattfry.io/gameimages/nsmwii.jpg", "http://mattfry.io/gameimages/nsmwii.jpg", console5, company1));
+		Game game12 = gameRepo.save(new Game("New Super Mario Bros. U", "2012", "http://mattfry.io/gameimages/nsmbu.jpg", "http://mattfry.io/gameimages/nsmbu.jpg", console7, company1));
+		Game game13 = gameRepo.save(new Game("Super Mario 3D World", "2014", "http://mattfry.io/gameimages/sm3Dw.jpg", "http://mattfry.io/gameimages/sm3Dw.jpg", console7, company1));
+		Game game14 = gameRepo.save(new Game("Paper Mario", "1997", "http://mattfry.io/gameimages/papermario64.jpg", "http://mattfry.io/gameimages/papermario64.jpg", console3, company1));
+		Game game15 = gameRepo.save(new Game("The Legend of Zelda", "1986", "http://mattfry.io/gameimages/zelda1.png","http://mattfry.io/gameimages/zelda1.png", console1, company1));
+		Game game16 = gameRepo.save(new Game("The Adventure of Link", "1988", "http://mattfry.io/gameimages/zelda2nes.jpg", "http://mattfry.io/gameimages/zelda2nes.jpg",console1, company1));
+		Game game17 = gameRepo.save(new Game("The Legend of Zelda: A Link to the Past", "1992", "http://mattfry.io/gameimages/zeldalttpsnses.jpg", "http://mattfry.io/gameimages/zeldalttpsnses.jpg",console2, company1));
+		Game game18 = gameRepo.save(new Game("The Legend of Zelda: Ocarina of Time", "1997", "http://mattfry.io/gameimages/zeldaocarina64.jpg", "http://mattfry.io/gameimages/zeldaocarina64.jpg", console3, company1));
+		Game game19 = gameRepo.save(new Game("The Legend of Zelda: Majora's Mask", "1999", "http://mattfry.io/gameimages/zeldamajora64.jpg", "http://mattfry.io/gameimages/zeldamajora64.jpg", console3, company1));
+		Game game20 = gameRepo.save(new Game("Sonic the Hedgehog", "1988", "http://mattfry.io/gameimages/sonic1segagen.jpg", "http://mattfry.io/gameimages/sonic1segagen.jpg", console13, company4));
+		Game game21 = gameRepo.save(new Game("Sonic the Hedgehog", "1988", "http://mattfry.io/gameimages/sonic1sms.jpg", "http://mattfry.io/gameimages/sonic1sms.jpg", console15, company4));
+		Game game22 = gameRepo.save(new Game("Sonic the Hedgehog", "1988", "http://mattfry.io/gameimages/sonic1gamegear.jpg", "http://mattfry.io/gameimages/sonic1gamegear.jpg", console16, company4));
+		Game game23 = gameRepo.save(new Game("Super Mario Land", "1989", "http://mattfry.io/gameimages/sml.png", "http://mattfry.io/gameimages/sml.png",console11, company1));
 	}
 
 }

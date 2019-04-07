@@ -16,6 +16,7 @@ export default function GameConsoles(gameconsoles) {
                 <input type="text" class="add-console__full-name" placeholder="Console Name">
                 <input type="text" class="add-console__short-name" placeholder="Console Short Name">
                 <input type="text" class="add-console__image-path" placeholder="image URL">
+                
                 <input type="text" class="add-game_manufacture" placeholder="Manufacturer">
                 <button class="add-console__submit">Add Console</button>
         </div>
@@ -42,6 +43,7 @@ export default function GameConsoles(gameconsoles) {
                              .join(" ")}
                            </select>
                          <input type="text" class="add-game__image-path" placeholder="Image URL">
+                         <input type="text" class="add-game__title-screen" placeholder="title screen URL">
                          <button class="add-game__submit">Add Game</button>
                  </div>
    </div>

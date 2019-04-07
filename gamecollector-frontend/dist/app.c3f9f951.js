@@ -194,8 +194,13 @@ exports.default = Games;
 
 function Games(games) {
   return games.map(function (game) {
-    return "\n                <li class=\"game\">\n                    <img class=\"game__imagepath\" src=\"".concat(game.imagePath, "\"></img>\n                    <p><h3 class=\"game__title\">").concat(game.gameTitle, "</h3>\n                    <h5 class=\"game__yearreleased\">").concat(game.yearReleased, "</h5></p>\n                </li>\n            ");
-  }).join('');
+    return "\n                <li class=\"game\">\n                    <img class=\"game__imagepath\" src=\"".concat(game.imagePath, "\"></img>\n                </li>\n                <div class =\"game-info__modal\">\n                    <div class=\"game-infomodal-content\">\n                        <span class=\"close-button4\">X</span>\n                        <img class=\"game__infoimagepath\" src=\"").concat(game.screenShot, "\"></img>\n                        <div class=\"game__desciption\">\n                            <h2 class =\"game__title\">").concat(game.gameTitle, "</h2>\n                            <p class =\"game__yearreleased\">").concat(game.yearReleased, "</p>\n                        </div>\n                    </div>\n                </div>\n            ");
+  }).join("");
+}
+
+{
+  /* <p><h3 class="game__title">${game.gameTitle}</h3>
+  <h5 class="game__yearreleased">${game.yearReleased}</h5></p> */
 }
 },{}],"js/components/CompanyOptions.js":[function(require,module,exports) {
 "use strict";
@@ -227,9 +232,9 @@ var _apiActions = _interopRequireDefault(require("../utils/api/api-actions"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function GameConsoles(gameconsoles) {
-  return "\n    <div class=\"nav--buttons\">\n        <span class=\"console-trigger\">Add Console</span>\n        <span class=\"game-trigger\">Add Game</span>\n        <span class=\"company-trigger\">Add Publisher/Manufacture</span>\n        <span class=\"remove-game\">Delete Games</span>\n    </div>\n    <div class =\"modal-console\">\n        <div class=\"consolemodal-content\">\n                <span class=\"close-button\">X</span>\n                <input type=\"text\" class=\"add-console__full-name\" placeholder=\"Console Name\">\n                <input type=\"text\" class=\"add-console__short-name\" placeholder=\"Console Short Name\">\n                <input type=\"text\" class=\"add-console__image-path\" placeholder=\"image URL\">\n                <input type=\"text\" class=\"add-game_manufacture\" placeholder=\"Manufacturer\">\n                <button class=\"add-console__submit\">Add Console</button>\n        </div>\n   </div>\n   <div class =\"modal-game\">\n               <div class=\"gamemodal-content\">\n                       <span class=\"close-button2\">X</span>\n                        <h2 class=\"modal__header\">Add Game</h2>\n                         <input type=\"text\" class=\"add-game__name\" placeholder=\"Game Title\">\n                         <input type=\"text\" class=\"add-game__yearreleased\" placeholder=\"Year Released\">\n                         <select type=\"text\" class=\"add-game_publisher\" placeholder=\"Publisher\">\n                                \n                         </select>\n                         <select type=\"select\" class=\"add-console__forgames\" placeholder=\"Select Console\">\n                           ".concat(gameconsoles.map(function (gameconsole) {
+  return "\n    <div class=\"nav--buttons\">\n        <span class=\"console-trigger\">Add Console</span>\n        <span class=\"game-trigger\">Add Game</span>\n        <span class=\"company-trigger\">Add Publisher/Manufacture</span>\n        <span class=\"remove-game\">Delete Games</span>\n    </div>\n    <div class =\"modal-console\">\n        <div class=\"consolemodal-content\">\n                <span class=\"close-button\">X</span>\n                <input type=\"text\" class=\"add-console__full-name\" placeholder=\"Console Name\">\n                <input type=\"text\" class=\"add-console__short-name\" placeholder=\"Console Short Name\">\n                <input type=\"text\" class=\"add-console__image-path\" placeholder=\"image URL\">\n                \n                <input type=\"text\" class=\"add-game_manufacture\" placeholder=\"Manufacturer\">\n                <button class=\"add-console__submit\">Add Console</button>\n        </div>\n   </div>\n   <div class =\"modal-game\">\n               <div class=\"gamemodal-content\">\n                       <span class=\"close-button2\">X</span>\n                        <h2 class=\"modal__header\">Add Game</h2>\n                         <input type=\"text\" class=\"add-game__name\" placeholder=\"Game Title\">\n                         <input type=\"text\" class=\"add-game__yearreleased\" placeholder=\"Year Released\">\n                         <select type=\"text\" class=\"add-game_publisher\" placeholder=\"Publisher\">\n                                \n                         </select>\n                         <select type=\"select\" class=\"add-console__forgames\" placeholder=\"Select Console\">\n                           ".concat(gameconsoles.map(function (gameconsole) {
     return "\n                            \n                           <option value=".concat(gameconsole.id, ">").concat(gameconsole.consoleName, "</option>\n                           ");
-  }).join(" "), "\n                           </select>\n                         <input type=\"text\" class=\"add-game__image-path\" placeholder=\"Image URL\">\n                         <button class=\"add-game__submit\">Add Game</button>\n                 </div>\n   </div>\n   <div class =\"modal-company\">\n   <div class=\"companymodal-content\">\n           <span class=\"close-button3\">X</span>\n           <input type=\"text\" class=\"add-company__name\" placeholder=\"Company Name\">\n           <input type=\"text\" class=\"add-company__image-path\" placeholder=\"Company Logo\">\n           \n           \n           <button class=\"add-company__submit\">Add Company</button>\n   </div>\n</div>\n   \n      <ul class=\"consoles\">\n        ").concat(gameconsoles.map(function (gameconsole) {
+  }).join(" "), "\n                           </select>\n                         <input type=\"text\" class=\"add-game__image-path\" placeholder=\"Image URL\">\n                         <input type=\"text\" class=\"add-game__title-screen\" placeholder=\"title screen URL\">\n                         <button class=\"add-game__submit\">Add Game</button>\n                 </div>\n   </div>\n   <div class =\"modal-company\">\n   <div class=\"companymodal-content\">\n           <span class=\"close-button3\">X</span>\n           <input type=\"text\" class=\"add-company__name\" placeholder=\"Company Name\">\n           <input type=\"text\" class=\"add-company__image-path\" placeholder=\"Company Logo\">\n           \n           \n           <button class=\"add-company__submit\">Add Company</button>\n   </div>\n</div>\n   \n      <ul class=\"consoles\">\n        ").concat(gameconsoles.map(function (gameconsole) {
     return "\n           <li class=\"console\">\n            <section class=\"console__header\">\n                <img class=\"console__imagepath\" src=\"".concat(gameconsole.imagePath, "\"></img>\n                <h3 class=\"console__name\">").concat(gameconsole.consoleName, "</h3>\n            </section>\n            <ul class=\"games\">\n            ").concat((0, _Games.default)(gameconsole.games), "\n            </ul>\n            </li>\n            ");
   }).join(""), "\n         \n          ");
 }
@@ -254,12 +259,21 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = EditGames;
 
+var _CompanyOptions = _interopRequireDefault(require("./CompanyOptions"));
+
+var _apiActions = _interopRequireDefault(require("../utils/api/api-actions"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function EditGames(games) {
-  return games.map(function (game) {
-    return "\n        <div class=\"editgame__content\">    \n            <li class=\"editgame\">\n                    <img class=\"editgame__imagepath\" src=\"".concat(game.imagePath, "\"></img>\n                    <h3 class=\"editgame__title\">").concat(game.gameTitle, "\n                    <button class=\"delete-game__btn\" id=\"").concat(game.id, "\">Delete Game</button></h3>\n            </li>\n\n                ");
-  }).join("");
+  api.getRequest("http://localhost:8080/consoles", function (gameconsoles) {
+    document.querySelector(".add-game_publisher").innerHTML = ConsoleOptions(gameconsoles);
+  });
+  return "\n  <div class=\"nav--buttons\">\n        <span class=\"console-trigger\">Add Console</span>\n        <span class=\"game-trigger\">Add Game</span>\n        <span class=\"company-trigger\">Add Publisher/Manufacture</span>\n        <span class=\"return-console\">Return to Consoles</span>\n    </div>\n\n    <div class =\"modal-console\">\n    <div class=\"consolemodal-content\">\n            <span class=\"close-button\">X</span>\n            <input type=\"text\" class=\"add-console__full-name\" placeholder=\"Console Name\">\n            <input type=\"text\" class=\"add-console__short-name\" placeholder=\"Console Short Name\">\n            <input type=\"text\" class=\"add-console__image-path\" placeholder=\"image URL\">\n            <input type=\"text\" class=\"add-game_manufacture\" placeholder=\"Manufacturer\">\n            <button class=\"add-console__submit\">Add Console</button>\n    </div>\n</div>\n<div class =\"modal-game\">\n           <div class=\"gamemodal-content\">\n                   <span class=\"close-button2\">X</span>\n                    <h2 class=\"modal__header\">Add Game</h2>\n                     <input type=\"text\" class=\"add-game__name\" placeholder=\"Game Title\">\n                     <input type=\"text\" class=\"add-game__yearreleased\" placeholder=\"Year Released\">\n                     <select type=\"text\" class=\"add-game_publisher\" placeholder=\"Publisher\">\n                            ".concat(ConsoleOptions(gameconsoles), "\n                     </select>\n                     <select type=\"select\" class=\"add-console__forgames\" placeholder=\"Select Console\">\n                       \n                       </select>\n                     <input type=\"text\" class=\"add-game__image-path\" placeholder=\"Image URL\">\n                     <button class=\"add-game__submit\">Add Game</button>\n             </div>\n</div>\n<div class =\"modal-company\">\n<div class=\"companymodal-content\">\n       <span class=\"close-button3\">X</span>\n       <input type=\"text\" class=\"add-company__name\" placeholder=\"Company Name\">\n       <input type=\"text\" class=\"add-company__image-path\" placeholder=\"Company Logo\">\n       \n       \n       <button class=\"add-company__submit\">Add Company</button>\n</div>\n</div>\n\n  \n  ").concat(games.map(function (game) {
+    return "\n    <div class=\"editgame__content\">    \n        <li class=\"editgame\">\n                <img class=\"editgame__imagepath\" src=\"".concat(game.imagePath, "\"></img>\n                <p><h3 class=\"editgame__title\">").concat(game.gameTitle, "</h3>\n                <button class=\"delete-game__btn\" id=\"").concat(game.id, "\">Delete Game</button>\n      </li>\n            ");
+  }).join(""), "\n  ");
 }
-},{}],"js/app.js":[function(require,module,exports) {
+},{"./CompanyOptions":"js/components/CompanyOptions.js","../utils/api/api-actions":"js/utils/api/api-actions.js"}],"js/app.js":[function(require,module,exports) {
 "use strict";
 
 var _eventActions = _interopRequireDefault(require("./utils/events/event-actions"));
@@ -279,23 +293,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 main();
 
 function main() {
-  _apiActions.default.getRequest('http://localhost:8080/consoles', function (gameconsoles) {
+  _apiActions.default.getRequest("http://localhost:8080/consoles", function (gameconsoles) {
     getAppContext().innerHTML = (0, _GameConsoles.default)(gameconsoles);
   }); //game edit menu
 
 
-  _eventActions.default.on(getAppContext(), 'click', function () {
-    if (event.target.classList.contains('remove-game')) {
-      _apiActions.default.getRequest('http://localhost:8080/games', function (games) {
+  _eventActions.default.on(getAppContext(), "click", function () {
+    if (event.target.classList.contains("remove-game")) {
+      _apiActions.default.getRequest("http://localhost:8080/games", function (games) {
         getAppContext().innerHTML = (0, _MaintGames.default)(games);
       });
     }
   });
 
-  _eventActions.default.on(getAppContext(), 'click', function () {
+  _eventActions.default.on(getAppContext(), "click", function () {
     //delete game
-    if (event.target.classList.contains('delete-game__btn')) {
-      var gameId = event.target.parentElement.querySelector('.delete-game__btn').id;
+    if (event.target.classList.contains("delete-game__btn")) {
+      var gameId = event.target.parentElement.querySelector(".delete-game__btn").id;
       console.log(gameId);
 
       _apiActions.default.postRequest("http://localhost:8080/games/delete", {
@@ -307,20 +321,28 @@ function main() {
     }
   });
 
-  _eventActions.default.on(getAppContext(), 'click', function () {
+  _eventActions.default.on(getAppContext(), "click", function () {
+    if (event.target.classList.contains("return-console")) {
+      location.reload();
+    }
+  });
+
+  _eventActions.default.on(getAppContext(), "click", function () {
     //game submit
-    if (event.target.classList.contains('add-game__submit')) {
-      var gameTitle = document.querySelector('.add-game__name').value;
-      var yearReleased = document.querySelector('.add-game__yearreleased').value;
-      var imagePath = document.querySelector('.add-game__image-path').value;
-      var gameConsole = document.querySelector('.add-console__forgames').value;
-      var company = document.querySelector('.add-game_publisher').value;
+    if (event.target.classList.contains("add-game__submit")) {
+      var gameTitle = document.querySelector(".add-game__name").value;
+      var yearReleased = document.querySelector(".add-game__yearreleased").value;
+      var imagePath = document.querySelector(".add-game__image-path").value;
+      var screenShot = document.querySelector(".add-game__title-screen").value;
+      var gameConsole = document.querySelector(".add-console__forgames").value;
+      var company = document.querySelector(".add-game_publisher").value;
       console.log(gameConsole);
 
-      _apiActions.default.postRequest('http://localhost:8080/games/add', {
+      _apiActions.default.postRequest("http://localhost:8080/games/add", {
         gameTitle: gameTitle,
         yearReleased: yearReleased,
         imagePath: imagePath,
+        screenShot: screenShot,
         company: company,
         gameConsole: gameConsole
       }, function (games) {
@@ -331,15 +353,15 @@ function main() {
     }
   });
 
-  _eventActions.default.on(getAppContext(), 'click', function () {
+  _eventActions.default.on(getAppContext(), "click", function () {
     //console submit
-    if (event.target.classList.contains('add-console__submit')) {
-      var consoleName = document.querySelector('.add-console__full-name').value;
-      var shortName = document.querySelector('.add-console__short-name').value;
-      var imagePath = document.querySelector('.add-console__image-path').value;
-      var companyName = document.querySelector('.add-game_manufacture').value;
+    if (event.target.classList.contains("add-console__submit")) {
+      var consoleName = document.querySelector(".add-console__full-name").value;
+      var shortName = document.querySelector(".add-console__short-name").value;
+      var imagePath = document.querySelector(".add-console__image-path").value;
+      var companyName = document.querySelector(".add-game_manufacture").value;
 
-      _apiActions.default.postRequest('http://localhost:8080/consoles/add', {
+      _apiActions.default.postRequest("http://localhost:8080/consoles/add", {
         consoleName: consoleName,
         shortName: shortName,
         imagePath: imagePath,
@@ -350,13 +372,13 @@ function main() {
     }
   });
 
-  _eventActions.default.on(getAppContext(), 'click', function () {
+  _eventActions.default.on(getAppContext(), "click", function () {
     //company submit
-    if (event.target.classList.contains('add-company__submit')) {
-      var company = document.querySelector('.add-company__name').value;
-      var imagePath = document.querySelector('.add-company__image-path').value;
+    if (event.target.classList.contains("add-company__submit")) {
+      var company = document.querySelector(".add-company__name").value;
+      var imagePath = document.querySelector(".add-company__image-path").value;
 
-      _apiActions.default.postRequest('http://localhost:8080/company/add', {
+      _apiActions.default.postRequest("http://localhost:8080/company/add", {
         company: company,
         imagePath: imagePath
       }, function (company) {
@@ -367,8 +389,8 @@ function main() {
     }
   });
 
-  _eventActions.default.on(getAppContext(), 'click', function () {
-    if (event.target.classList.contains('console-trigger')) {
+  _eventActions.default.on(getAppContext(), "click", function () {
+    if (event.target.classList.contains("console-trigger")) {
       var toggleConsoleModal = function toggleConsoleModal() {
         consolemodal.classList.toggle("show-consolemodal");
       };
@@ -388,7 +410,7 @@ function main() {
     } //close button
 
 
-    if (event.target.classList.contains('close-button')) {
+    if (event.target.classList.contains("close-button")) {
       var closeTheGoddamnModal = function closeTheGoddamnModal() {
         consolemodal.classList.toggle("show-consolemodal");
       };
@@ -399,7 +421,7 @@ function main() {
     } //add game modal
 
 
-    if (event.target.classList.contains('game-trigger')) {
+    if (event.target.classList.contains("game-trigger")) {
       var toggleGameModal = function toggleGameModal() {
         gamemodal.classList.toggle("show-gamemodal");
       };
@@ -419,7 +441,7 @@ function main() {
     } //close button
 
 
-    if (event.target.classList.contains('close-button2')) {
+    if (event.target.classList.contains("close-button2")) {
       var _closeTheGoddamnModal = function _closeTheGoddamnModal() {
         gamemodal.classList.toggle("show-gamemodal");
       };
@@ -427,10 +449,42 @@ function main() {
       var closeButton = document.querySelector(".close-button2");
       var gamemodal = document.querySelector(".modal-game");
       closeButton.addEventListener("click", _closeTheGoddamnModal);
+    } //view game-info modal
+
+
+    if (event.target.classList.contains("game__imagepath")) {
+      var toggleGameInfoModal = function toggleGameInfoModal() {
+        gameInfoModal.classList.toggle("show-game-info__modal");
+      };
+
+      var windowOnGameInfoClick = function windowOnGameInfoClick(event) {
+        if (event.target === gameInfoModal) {
+          toggleGameInfoModal();
+        }
+      };
+
+      var gameInfoModal = document.querySelector(".game-info__modal");
+      var gameInfoTrigger = document.querySelector(".game__imagepath");
+      var closeButton4 = document.querySelector(".close-button4");
+      var i;
+      gameInfoTrigger.addEventListener("click", toggleGameInfoModal);
+      closeButton4.addEventListener("click", toggleGameInfoModal);
+      window.addEventListener("click", windowOnGameInfoClick);
+    } //close button
+
+
+    if (event.target.classList.contains("close-button4")) {
+      var _closeTheGoddamnModal2 = function _closeTheGoddamnModal2() {
+        gameInfoModal.classList.toggle("show-game-info__modal");
+      };
+
+      var closeButton4 = document.querySelector(".close-button4");
+      var gameInfoModal = document.querySelector(".game-info__modal");
+      closeButton4.addEventListener("click", _closeTheGoddamnModal2);
     } //add company modal
 
 
-    if (event.target.classList.contains('company-trigger')) {
+    if (event.target.classList.contains("company-trigger")) {
       var toggleCompanyModal = function toggleCompanyModal() {
         companymodal.classList.toggle("show-companymodal");
       };
@@ -450,14 +504,14 @@ function main() {
     } //company close button
 
 
-    if (event.target.classList.contains('close-button3')) {
-      var _closeTheGoddamnModal2 = function _closeTheGoddamnModal2() {
+    if (event.target.classList.contains("close-button3")) {
+      var _closeTheGoddamnModal3 = function _closeTheGoddamnModal3() {
         companymodal.classList.toggle("show-companymodal");
       };
 
       var closeButton = document.querySelector(".close-button3");
       var companymodal = document.querySelector(".modal-company");
-      closeButton.addEventListener("click", _closeTheGoddamnModal2);
+      closeButton.addEventListener("click", _closeTheGoddamnModal3);
     }
   });
 }
@@ -493,7 +547,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51250" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60778" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

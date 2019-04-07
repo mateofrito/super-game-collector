@@ -49,6 +49,7 @@ public class GameController {
 		String gameTitle = json.getString("gameTitle");
 		String yearReleased = json.getString("yearReleased");
 		String imagePath = json.getString("imagePath");
+		String screenShot = json.getString("screenShot");
 		String companyNameString = json.getString("company");
 		//String gameConsoleString = json.getString("gameConsole");
 		
@@ -65,6 +66,10 @@ public class GameController {
 			companyNameString ="unknown";
 		}
 		
+		if (imagePath.isEmpty()) {
+			
+			imagePath = "http://mattfry.io/consoleicons/consolegeneric.png";
+		}
 		
 		
 		
@@ -72,7 +77,8 @@ public class GameController {
 		
 		
 		
-		gameRepo.save(new Game(gameTitle, yearReleased, imagePath, gameConsole, company));
+		
+		gameRepo.save(new Game(gameTitle, yearReleased, imagePath, screenShot, gameConsole, company));
 		
 		return(Collection<Game>) gameRepo.findAll();
 		
