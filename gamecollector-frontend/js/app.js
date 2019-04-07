@@ -191,10 +191,10 @@ function main() {
 
     if (event.target.classList.contains("game__imagepath")) {
       var gameInfoModal = document.querySelector(".game-info__modal");
-      var gameInfoTrigger = document.querySelector(".game__imagepath");
+      // var gameInfoTrigger = document.querySelector(".game__imagepath");
       var closeButton4 = document.querySelector(".close-button4");
       var i;
-
+      var triggerButtons = document.getElementsByClassName(".game__imagepath");
       function toggleGameInfoModal() {
         gameInfoModal.classList.toggle("show-game-info__modal");
       }
@@ -204,9 +204,11 @@ function main() {
           toggleGameInfoModal();
         }
       }
-      gameInfoTrigger.addEventListener("click", toggleGameInfoModal);
-      closeButton4.addEventListener("click", toggleGameInfoModal);
-      window.addEventListener("click", windowOnGameInfoClick);
+      for (i = 0; i < triggerButtons.length; i++) {
+        triggerButtons[i].addEventListener("click", toggleGameInfoModal);
+        closeButton4.addEventListener("click", toggleGameInfoModal);
+        window.addEventListener("click", windowOnGameInfoClick);
+      }
     }
 
     //close button

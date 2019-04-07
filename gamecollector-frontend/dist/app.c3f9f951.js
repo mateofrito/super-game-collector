@@ -194,7 +194,7 @@ exports.default = Games;
 
 function Games(games) {
   return games.map(function (game) {
-    return "\n                <li class=\"game\">\n                    <img class=\"game__imagepath\" src=\"".concat(game.imagePath, "\"></img>\n                </li>\n                <div class =\"game-info__modal\">\n                    <div class=\"game-infomodal-content\">\n                        <span class=\"close-button4\">X</span>\n                        <img class=\"game__infoimagepath\" src=\"").concat(game.screenShot, "\"></img>\n                        <div class=\"game__desciption\">\n                            <h2 class =\"game__title\">").concat(game.gameTitle, "</h2>\n                            <p class =\"game__yearreleased\">").concat(game.yearReleased, "</p>\n                        </div>\n                    </div>\n                </div>\n            ");
+    return "\n                <li class=\"game\">\n                    <img id=\"".concat(game.id, "\" class=\"game__imagepath\" src=\"").concat(game.imagePath, "\"></img>\n                </li>\n                <div id=\"").concat(game.id, "\" class =\"game-info__modal\">\n                    <div class=\"game-infomodal-content\">\n                        <span class=\"close-button4\">X</span>\n                        <img class=\"game__infoimagepath\" src=\"").concat(game.screenShot, "\"></img>\n                        <div class=\"game__desciption\">\n                            <h2 class =\"game__title\">").concat(game.gameTitle, "</h2>\n                            <p class =\"game__yearreleased\">").concat(game.yearReleased, "</p>\n                        </div>\n                    </div>\n                </div>\n            ");
   }).join("");
 }
 
@@ -463,13 +463,17 @@ function main() {
         }
       };
 
-      var gameInfoModal = document.querySelector(".game-info__modal");
-      var gameInfoTrigger = document.querySelector(".game__imagepath");
+      var gameInfoModal = document.querySelector(".game-info__modal"); // var gameInfoTrigger = document.querySelector(".game__imagepath");
+
       var closeButton4 = document.querySelector(".close-button4");
       var i;
-      gameInfoTrigger.addEventListener("click", toggleGameInfoModal);
-      closeButton4.addEventListener("click", toggleGameInfoModal);
-      window.addEventListener("click", windowOnGameInfoClick);
+      var triggerButtons = document.getElementsByClassName(".game__imagepath");
+
+      for (i = 0; i < triggerButtons.length; i++) {
+        triggerButtons[i].addEventListener("click", toggleGameInfoModal);
+        closeButton4.addEventListener("click", toggleGameInfoModal);
+        window.addEventListener("click", windowOnGameInfoClick);
+      }
     } //close button
 
 
@@ -519,7 +523,7 @@ function main() {
 function getAppContext() {
   return document.querySelector("#app");
 }
-},{"./utils/events/event-actions":"js/utils/events/event-actions.js","./utils/api/api-actions":"js/utils/api/api-actions.js","./components/Games":"js/components/Games.js","./components/GameConsoles":"js/components/GameConsoles.js","./components/Company":"js/components/Company.js","./components/MaintGames":"js/components/MaintGames.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./utils/events/event-actions":"js/utils/events/event-actions.js","./utils/api/api-actions":"js/utils/api/api-actions.js","./components/Games":"js/components/Games.js","./components/GameConsoles":"js/components/GameConsoles.js","./components/Company":"js/components/Company.js","./components/MaintGames":"js/components/MaintGames.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -547,7 +551,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60778" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62478" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -722,5 +726,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/app.js"], null)
+},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","js/app.js"], null)
 //# sourceMappingURL=/app.c3f9f951.js.map

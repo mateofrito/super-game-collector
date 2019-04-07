@@ -3,9 +3,11 @@ export default function Games(games) {
     .map(game => {
       return `
                 <li class="game">
-                    <img class="game__imagepath" src="${game.imagePath}"></img>
+                    <img id="${game.id}" class="game__imagepath" src="${
+        game.imagePath
+      }"></img>
                 </li>
-                <div class ="game-info__modal">
+                <div id="${game.id}" class ="game-info__modal">
                     <div class="game-infomodal-content">
                         <span class="close-button4">X</span>
                         <img class="game__infoimagepath" src="${
