@@ -22,6 +22,7 @@ public class Game {
 	private String gameTitle;
 	private String yearReleased;
 	private String imagePath;
+	private String screenShot;
 	
 	@ManyToOne
 	@JsonIgnore
@@ -42,10 +43,11 @@ public class Game {
 
 
 
-	public Game(String gameTitle, String yearReleased, String imagePath, GameConsole gameConsole, Company ...company) {
+	public Game(String gameTitle, String yearReleased, String imagePath, String screenShot, GameConsole gameConsole, Company ...company) {
 			this.gameTitle = gameTitle;
 			this.yearReleased = yearReleased;
 			this.imagePath = imagePath;
+			this.screenShot = screenShot;
 			this.gameConsole = gameConsole;
 			this.company = Arrays.asList(company);
 
@@ -85,17 +87,9 @@ public class Game {
 		return imagePath;
 	}
 	
-	
-	
-
-
-
-
-
-
-
-
-	
+	public String getScreenShot() {
+		return screenShot;
+	}
 
 
 
@@ -107,8 +101,30 @@ public class Game {
 	@Override
 	public String toString() {
 		return "Game [id=" + id + ", gameTitle=" + gameTitle + ", yearReleased=" + yearReleased + ", imagePath="
-				+ imagePath + "]";
+				+ imagePath + ", screenShot=" + screenShot + ", gameConsole=" + gameConsole + ", company=" + company
+				+ "]";
 	}
+	
+	
+	
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	
 
 
 

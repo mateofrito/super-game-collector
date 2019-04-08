@@ -1,344 +1,436 @@
 @font-face {
-    font-family: mariofont;
-    src: url(/SuperMarioBrosNES.7cbc0723.ttf);
+  font-family: mariofont;
+  src: url(/SuperMarioBrosNES.7cbc0723.ttf);
+}
+
+.header {
+  font-family: mariofont;
+  src: url(/SuperMarioBrosNES.7cbc0723.ttf);
+  color: white;
+  background-color: black;
+  float: left;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  max-height: 75px;
+}
+
+.nav--buttons {
+  margin-top: 79px;
+  background-color: black;
+  color: white;
+  font-family: "Oswald", sans-serif;
+}
+
+.console__name {
+  font-family: mariofont;
+  src: url(/SuperMarioBrosNES.7cbc0723.ttf);
+  padding-top: 13px;
+  font-size: 2.13vh;
+}
+
+.game__yearreleased {
+  font-family: "Lora", serif;
+}
+
+.game__title {
+  font-family: "Oswald", sans-serif;
+}
+
+.mario {
+  max-width: 45px;
+  float: left;
+  width: 100%;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 20px;
+  margin-right: 10px;
+}
+
+.modal__header {
+  font-family: mariofont;
+  src: url(/SuperMarioBrosNES.7cbc0723.ttf);
+}
+
+.header__title {
+  padding-left: 10px;
+  font-size: 32px;
+  padding-bottom: 15px;
+}
+@media screen and (max-width: 738px) {
+  .header__title {
+    font-size: 24px;
+    padding-top: 10px;
   }
-  
-  .header{
-     font-family: mariofont;
-     src: url(/SuperMarioBrosNES.7cbc0723.ttf);
-     color: white;
-     background-color: black;
-     float: left;
-     width: 100%;
-     position: fixed;
-     top: 0;
-     max-height: 75px;
-
+}
+@media screen and (max-width: 560px) {
+  .header__title {
+    padding-top: px;
+    padding-bottom: 5px;
   }
+}
 
-  .buttons{
-    margin-top: 79px;
-  }
+.mario:hover {
+  background-color: #9290ff;
+}
 
-  .console__name{
-    font-family: mariofont;
-     src: url(/SuperMarioBrosNES.7cbc0723.ttf);
-     padding-top: 13px;
-     font-size: 2.13vh
-
-
-  }
-
-  .game__yearreleased{
-    font-family: 'Lora', serif;
-  }
-
-  .game__title{
-    font-family:  'Oswald', sans-serif;
-  }
-
-  .mario{
-      max-width: 45px;
-      float: left;
-      width: 100%;
-      padding-top: 10px;
-      padding-right: 10px;
-      padding-left: 10px;
-      padding-bottom: 20px;
-      margin-right: 10px;
-
-
-
-  }
-
-  .header__title{
-      padding-left: 10px;
-      font-size: 2.8vw;
-  }
-
-  .mario:hover {
-      background-color: #9290ff;
-
-  }
-
-  .app{
-      margin-top: 79px;
-      align-items: center;
-      text-align: center;
-  }
-    .console{
-        
-        float: left;
-        list-style: none;
-        width: 100%;
-    }
-    .game{
-      background-color: gray;
-      text-align: left;
-      float: left;
-      list-style: none;
-      margin: 5px;
+#app {
+  margin-top: 80px;
+}
+.console {
+  float: left;
+  list-style: none;
+  width: 100%;
+}
+.game {
+  text-align: left;
+  float: left;
+  list-style: none;
+  /* margin: 5px;
       padding-left: 5px;
-      padding-right: 5px;
-      text-align: center;
-      max-width: 140px;
-      width: 100%;
-     
+      padding-right: 5px; */
+  text-align: center;
+  max-width: 140px;
+  width: 100%;
+  z-index: 5;
 
+  transition: transform 1s;
+}
 
+.game__imagepath {
+  max-width: 150px;
+  width: 100%;
+}
 
-    }
+.game__infoimagepath {
+  max-width: 150px;
+  width: 100%;
+}
 
-    .game__imagepath{
-        
-        max-width: 100px;;
-        width: 100%
-    }
-    .game-trigger{
-      font-size: 2.2vh;
-    }
-    .console-trigger{
-        font-size: 2.2vh;
-        
-      }
-      .company-trigger{
-        font-size: 2.2vh;
-        
-      }
+.game:hover {
+  transform: scale(1.15);
+}
+.game-trigger {
+  font-size: 2.5vh;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+.console-trigger {
+  font-size: 2.5vh;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+.company-trigger {
+  font-size: 2.5vh;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+.remove-game {
+  font-size: 2.5vh;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+.game-trigger:hover,
+.console-trigger:hover,
+.company-trigger:hover,
+.remove-game:hover {
+  background-color: red;
+}
 
+.modal-console {
+  position: fixed;
+  left: 0;
+  top: 10px;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: 3;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
 
-    .modal-console{
-            
-            position: fixed;
-            left: 0;
-            top: 10px;
-            width: 100%;
-            height: 100%;
-            max-width: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            z-index:3;
-            visibility: hidden;
-            transform: scale(1.1);
-            transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-       }
-
-       .consolemodal-content {
-        position: absolute;
-        /* top: 50%;
+.consolemodal-content {
+  position: absolute;
+  /* top: 50%;
         left: 50%; */
-        top: 50%;
-        left: 50%;
-        width: 25%;
-        height: 25%;
-        font-size: 20px;
-        
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 1rem 1.5rem;
-        width: 24rem;
-        border-radius: 0.5rem;
-        overflow: auto;
-      }
+  top: 50%;
+  left: 50%;
+  width: 25%;
+  height: 25%;
+  font-size: 20px;
 
-       .close-button {
-        float: right;
-        width: 1.5rem;
-        line-height: 1.5rem;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 0.25rem;
-        background-color: lightgray;
-      }
-      .close-button:hover {
-        background-color: darkgray;
-      }
-        .show-consolemodal {
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1.0);
-            transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-          }
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+}
 
-         
+.close-button {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+.close-button:hover {
+  background-color: darkgray;
+}
+.show-consolemodal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
 
-          .modal-game{
-            position: fixed;
-            left: 0;
-            top: 10px;
-            width: 100%;
-            height: 100%;
-            max-width: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            z-index:3;
-            visibility: hidden;
-            transform: scale(1.1);
-            transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-       }
+.modal-game {
+  position: fixed;
+  left: 0;
+  top: 10px;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: 3;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
 
-       .gamemodal-content {
-        position: absolute;
-        /* top: 50%;
+.gamemodal-content {
+  position: absolute;
+  /* top: 50%;
         left: 50%; */
-        top: 50%;
-        left: 50%;
-        width: 25%;
-        height: 25%;
-        font-size: 20px;
-        
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 1rem 1.5rem;
-        width: 24rem;
-        border-radius: 0.5rem;
-        overflow: auto;
-      }
+  top: 50%;
+  left: 50%;
+  width: 25%;
+  height: 25%;
+  font-size: 20px;
 
-       .close-button2 {
-        float: right;
-        width: 1.5rem;
-        line-height: 1.5rem;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 0.25rem;
-        background-color: lightgray;
-      }
-      .close-button2:hover {
-        background-color: darkgray;
-      }
-        .show-gamemodal {
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1.0);
-            transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-          }
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+}
 
-          
-          .console__header{
-            margin: 2px;
-            cursor: pointer;
-            text-align: left;
-            width: 100%;
-            background-color: red;
-            color: white;
-            height: 50px;
-            transition: 0.4s;
-            
-          }
-          
-          .console__header:hover{
-            background-color: black;
-          }
-          
-          .console__imagepath{
-            float: left;
-          }
-          
-          .console__imagepath{
-            padding-bottom: 20px;
-            padding-right: 5px;
-          }
-  
-          .panel {
-            padding: 0 18px;
-            display: none;
-            background-color: white;
-            overflow: hidden;
-          }
-         .games{
-           text-align: left;
-           padding: 0 18px;
-           
-            background-color: white;
-            overflow: hidden;
-                              }
+.close-button2 {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+.close-button2:hover {
+  background-color: darkgray;
+}
+.show-gamemodal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
 
+.console__header {
+  margin: 2px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  background-color: red;
+  color: white;
+  height: 50px;
+  transition: 0.4s;
+}
 
-                              .modal-company{
-                                position: fixed;
-                                left: 0;
-                                top: 10px;
-                                width: 100%;
-                                height: 100%;
-                                max-width: 100%;
-                                background-color: rgba(0, 0, 0, 0.5);
-                                opacity: 0;
-                                z-index:3;
-                                visibility: hidden;
-                                transform: scale(1.1);
-                                transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-                           }
-                    
-                           .companymodal-content {
-                            position: absolute;
-                            /* top: 50%;
+.console__header:hover {
+  background-color: black;
+}
+
+.console__imagepath {
+  float: left;
+}
+
+.console__imagepath {
+  padding-bottom: 20px;
+  padding-right: 5px;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+.games {
+  text-align: left;
+  padding: 0 18px;
+
+  background-color: white;
+  overflow: hidden;
+}
+
+.modal-company {
+  position: fixed;
+  left: 0;
+  top: 10px;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: 3;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.companymodal-content {
+  position: absolute;
+  /* top: 50%;
                             left: 50%; */
-                            top: 50%;
-                            left: 50%;
-                            width: 25%;
-                            height: 25%;
-                            font-size: 20px;
-                            
-                            transform: translate(-50%, -50%);
-                            background-color: white;
-                            padding: 1rem 1.5rem;
-                            width: 24rem;
-                            border-radius: 0.5rem;
-                            overflow: auto;
-                          }
-                    
-                           .close-button3 {
-                            float: right;
-                            width: 1.5rem;
-                            line-height: 1.5rem;
-                            text-align: center;
-                            cursor: pointer;
-                            border-radius: 0.25rem;
-                            background-color: lightgray;
-                          }
-                          .close-button3:hover {
-                            background-color: darkgray;
-                          }
-                            .show-companymodal {
-                                opacity: 1;
-                                visibility: visible;
-                                transform: scale(1.0);
-                                transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-                              }
+  top: 50%;
+  left: 50%;
+  width: 25%;
+  height: 25%;
+  font-size: 20px;
 
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+}
 
-    .editgame{
-      margin: 2px;
-      cursor: pointer;
-      text-align: left;
-      width: 100%;
-      background-color: lightgray;
-      color: black;
-      height: 50px;
-      list-style: none;
-      
+.close-button3 {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+.close-button3:hover {
+  background-color: darkgray;
+}
+.show-companymodal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
 
+.editgame {
+  margin: 2px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  background-color: lightgray;
+  color: black;
+  height: 50px;
+  list-style: none;
+}
 
-    }
+.editgame__imagepath {
+  float: left;
+  max-width: 35px;
+  width: 100%;
+  padding-right: 5px;
+}
 
-    .editgame__imagepath{
-      float: left;
-      max-width: 25px;;
-      width: 100%
-  }
+.editgame__title {
+  font-family: "Oswald", sans-serif;
+  margin-top: 5px;
+  margin-left: 5px;
 
-  .editgame__title{
-    font-family:  'Oswald', sans-serif;
-  }
-  .delete-game__btn{
-    float: right;
-  }
+  margin-right: 1px;
+}
+.delete-game__btn {
+  float: right;
+  margin-top: 10px;
+}
 
-  .remove-game{
-    font-size: 2.2vh;
+.remove-game {
+  font-size: 2.2vh;
+}
 
-  }
-  
+.game-info__modal {
+  position: fixed;
+  left: 0;
+  top: 10px;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: 3;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.game-infomodal-content {
+  position: absolute;
+  /* top: 50%;
+left: 50%; */
+  top: 50%;
+  left: 50%;
+  width: 25%;
+  height: 45%;
+  font-size: 20px;
+
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+}
+
+.close-button4 {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+.close-button4:hover {
+  background-color: darkgray;
+}
+.show-game-info__modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.game__infoimagepath {
+  float: left;
+  padding-right: 5px;
+}
+
+.game__description {
+  float: right;
+  background-color: grey;
+}
+
 
 /*# sourceMappingURL=/styles.b61e60ae.css.map */
