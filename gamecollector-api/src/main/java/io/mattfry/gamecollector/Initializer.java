@@ -58,16 +58,7 @@ public class Initializer implements CommandLineRunner {
 		
 		
 		Game game4 = gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/titlescreens/supermariobros.png",console1 , company1));
-		Game testgame1= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
-		Game testgame2= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
-		Game testgame3= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
-		Game testgame4= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
-		Game testgame5= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
-		Game testgam61= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
-		Game testgame7= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
-		Game testgame8= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
-		Game testgame9= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
-		Game testgame10= gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/gameimages/smb.jpg",console1 , company1));
+		
 		
 		Game game5 = gameRepo.save(new Game("Super Mario Bros 2", "1987", "http://mattfry.io/gameimages/smb2.jpg", "http://mattfry.io/gameimages/smb2.jpg",console1, company1));
 		Game game1 = gameRepo.save(new Game("Super Mario Bros 3", "1989", "http://mattfry.io/gameimages/smb3.jpg", "http://mattfry.io/gameimages/smb3.jpg",console1, company1));
@@ -91,6 +82,11 @@ public class Initializer implements CommandLineRunner {
 		Game game21 = gameRepo.save(new Game("Sonic the Hedgehog", "1988", "http://mattfry.io/gameimages/sonic1sms.jpg", "http://mattfry.io/gameimages/sonic1sms.jpg", console15, company4));
 		Game game22 = gameRepo.save(new Game("Sonic the Hedgehog", "1988", "http://mattfry.io/gameimages/sonic1gamegear.jpg", "http://mattfry.io/gameimages/sonic1gamegear.jpg", console16, company4));
 		Game game23 = gameRepo.save(new Game("Super Mario Land", "1989", "http://mattfry.io/gameimages/sml.png", "http://mattfry.io/gameimages/sml.png",console11, company1));
+		Game game24 = gameRepo.save(new Game("Battletoads", "1991", "http://mattfry.io/nesgamecovers/Battletoads.jpg", "http://mattfry.io/nesgamecovers/Battletoads.jpg",console1 , company1));
+		Game game25= gameRepo.save(new Game("Metroid", "1986", "http://mattfry.io/nesgamecovers/Metroid.jpg", "http://mattfry.io/nesgamecovers/Metroid.jpg",console1 , company1));
+		Game game26 = gameRepo.save(new Game("QBert", "1985", "http://mattfry.io/nesgamecovers/QBert.jpg", "http://mattfry.io/nesgamecovers/QBert.jpg",console1 , company1));
+		Game game27 = gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/titlescreens/supermariobros.png",console1 , company1));
+		Game game28 = gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", "http://mattfry.io/titlescreens/supermariobros.png",console1 , company1));
 	}
 
 }

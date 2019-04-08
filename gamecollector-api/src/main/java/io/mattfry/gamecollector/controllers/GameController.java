@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.wecancodeit.albumapp.models.Artist;
 
 import io.mattfry.gamecollector.models.Company;
 import io.mattfry.gamecollector.models.Game;
