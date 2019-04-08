@@ -454,7 +454,8 @@ function main() {
 
     if (event.target.classList.contains("game__imagepath")) {
       var toggleGameInfoModal = function toggleGameInfoModal() {
-        gameInfoModal.classList.toggle("show-game-info__modal");
+        gameInfoModal[i].classList.toggle("show-game-info__modal");
+        console.log("this works");
       };
 
       var windowOnGameInfoClick = function windowOnGameInfoClick(event) {
@@ -463,15 +464,16 @@ function main() {
         }
       };
 
-      var gameInfoModal = document.querySelector(".game-info__modal"); // var gameInfoTrigger = document.querySelector(".game__imagepath");
+      var triggerButtons = document.querySelectorAll(".game__imagepath");
+      var gameInfoModal = document.querySelectorAll(".game-info__modal"); // var gameInfoTrigger = document.querySelector(".game__imagepath");
 
       var closeButton4 = document.querySelector(".close-button4");
       var i;
-      var triggerButtons = document.getElementsByClassName(".game__imagepath");
+      var n;
 
       for (i = 0; i < triggerButtons.length; i++) {
-        triggerButtons[i].addEventListener("click", toggleGameInfoModal);
-        closeButton4.addEventListener("click", toggleGameInfoModal);
+        triggerButtons[i].onclick = toggleGameInfoModal; //closeButton4.addEventListener("click", toggleGameInfoModal);
+
         window.addEventListener("click", windowOnGameInfoClick);
       }
     } //close button
@@ -523,7 +525,7 @@ function main() {
 function getAppContext() {
   return document.querySelector("#app");
 }
-},{"./utils/events/event-actions":"js/utils/events/event-actions.js","./utils/api/api-actions":"js/utils/api/api-actions.js","./components/Games":"js/components/Games.js","./components/GameConsoles":"js/components/GameConsoles.js","./components/Company":"js/components/Company.js","./components/MaintGames":"js/components/MaintGames.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./utils/events/event-actions":"js/utils/events/event-actions.js","./utils/api/api-actions":"js/utils/api/api-actions.js","./components/Games":"js/components/Games.js","./components/GameConsoles":"js/components/GameConsoles.js","./components/Company":"js/components/Company.js","./components/MaintGames":"js/components/MaintGames.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -551,7 +553,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62478" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52206" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -726,5 +728,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","js/app.js"], null)
+},{}]},{},["../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/app.js"], null)
 //# sourceMappingURL=/app.c3f9f951.js.map
