@@ -190,40 +190,24 @@ function main() {
     //view game-info modal
 
     if (event.target.classList.contains("game__imagepath")) {
-      var triggerButtons = document.querySelectorAll(".game__imagepath");
-      var gameInfoModal = document.querySelectorAll(".game-info__modal");
-      // var gameInfoTrigger = document.querySelector(".game__imagepath");
-      var closeButton4 = document.querySelector(".close-button4");
-      var i;
-      var n;
-
-      function toggleGameInfoModal() {
-        gameInfoModal[i].classList.toggle("show-game-info__modal");
-        console.log("this works");
-      }
-
-      function windowOnGameInfoClick(event) {
-        if (event.target === gameInfoModal) {
-          toggleGameInfoModal();
-        }
-      }
-      for (i = 0; i < triggerButtons.length; i++) {
-        triggerButtons[i].onclick = toggleGameInfoModal;
-        //closeButton4.addEventListener("click", toggleGameInfoModal);
-        window.addEventListener("click", windowOnGameInfoClick);
-      }
+      var triggerButtons = [...document.querySelectorAll(".game__imagepath")];
+      triggerButtons.forEach(function(btn) {
+        btn.onclick = function() {
+          var gameInfoModal = btn.getAttribute("data-modal");
+          document.getElementById(gameInfoModal).style.display = "block";
+        };
+      });
     }
 
     //close button
     if (event.target.classList.contains("close-button4")) {
-      var closeButton4 = document.querySelector(".close-button4");
-      var gameInfoModal = document.querySelector(".game-info__modal");
-
-      function closeTheGoddamnModal() {
-        gameInfoModal.classList.toggle("show-game-info__modal");
-      }
-
-      closeButton4.addEventListener("click", closeTheGoddamnModal);
+      var closeBtns = [...document.querySelectorAll(".close-button4")];
+      closeBtns.forEach(function(btn) {
+        btn.onclick = function() {
+          var modal = btn.closest(".game-info__modal");
+          modal.style.display = "none";
+        };
+      });
     }
 
     //add company modal

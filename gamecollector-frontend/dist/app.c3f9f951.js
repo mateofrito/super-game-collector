@@ -194,7 +194,7 @@ exports.default = Games;
 
 function Games(games) {
   return games.map(function (game) {
-    return "\n                <li class=\"game\">\n                    <img id=\"".concat(game.id, "\" class=\"game__imagepath\" src=\"").concat(game.imagePath, "\"></img>\n                </li>\n                <div id=\"").concat(game.id, "\" class =\"game-info__modal\">\n                    <div class=\"game-infomodal-content\">\n                        <span class=\"close-button4\">X</span>\n                        <img class=\"game__infoimagepath\" src=\"").concat(game.screenShot, "\"></img>\n                        <div class=\"game__desciption\">\n                            <h2 class =\"game__title\">").concat(game.gameTitle, "</h2>\n                            <p class =\"game__yearreleased\">").concat(game.yearReleased, "</p>\n                        </div>\n                    </div>\n                </div>\n            ");
+    return "\n                <li class=\"game\">\n                    <img data-modal=\"".concat(game.id, "\" class=\"game__imagepath\" src=\"").concat(game.imagePath, "\"></img>\n                </li>\n                <div id=\"").concat(game.id, "\" class =\"game-info__modal\">\n                    <div class=\"game-infomodal-content\">\n                        <span data-modal=\"").concat(game.id, "\" class=\"close-button4\">X</span>\n                        <img class=\"game__infoimagepath\" src=\"").concat(game.screenShot, "\"></img>\n                        <div class=\"game__desciption\">\n                            <h2 class =\"game__title\">").concat(game.gameTitle, "</h2>\n                            <p class =\"game__yearreleased\">").concat(game.yearReleased, "</p>\n                        </div>\n                    </div>\n                </div>\n            ");
   }).join("");
 }
 
@@ -289,6 +289,14 @@ var _Company = _interopRequireDefault(require("./components/Company"));
 var _MaintGames = _interopRequireDefault(require("./components/MaintGames"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 main();
 
@@ -453,40 +461,26 @@ function main() {
 
 
     if (event.target.classList.contains("game__imagepath")) {
-      var toggleGameInfoModal = function toggleGameInfoModal() {
-        gameInfoModal[i].classList.toggle("show-game-info__modal");
-        console.log("this works");
-      };
+      var triggerButtons = _toConsumableArray(document.querySelectorAll(".game__imagepath"));
 
-      var windowOnGameInfoClick = function windowOnGameInfoClick(event) {
-        if (event.target === gameInfoModal) {
-          toggleGameInfoModal();
-        }
-      };
-
-      var triggerButtons = document.querySelectorAll(".game__imagepath");
-      var gameInfoModal = document.querySelectorAll(".game-info__modal"); // var gameInfoTrigger = document.querySelector(".game__imagepath");
-
-      var closeButton4 = document.querySelector(".close-button4");
-      var i;
-      var n;
-
-      for (i = 0; i < triggerButtons.length; i++) {
-        triggerButtons[i].onclick = toggleGameInfoModal; //closeButton4.addEventListener("click", toggleGameInfoModal);
-
-        window.addEventListener("click", windowOnGameInfoClick);
-      }
+      triggerButtons.forEach(function (btn) {
+        btn.onclick = function () {
+          var gameInfoModal = btn.getAttribute("data-modal");
+          document.getElementById(gameInfoModal).style.display = "block";
+        };
+      });
     } //close button
 
 
     if (event.target.classList.contains("close-button4")) {
-      var _closeTheGoddamnModal2 = function _closeTheGoddamnModal2() {
-        gameInfoModal.classList.toggle("show-game-info__modal");
-      };
+      var closeBtns = _toConsumableArray(document.querySelectorAll(".close-button4"));
 
-      var closeButton4 = document.querySelector(".close-button4");
-      var gameInfoModal = document.querySelector(".game-info__modal");
-      closeButton4.addEventListener("click", _closeTheGoddamnModal2);
+      closeBtns.forEach(function (btn) {
+        btn.onclick = function () {
+          var modal = btn.closest(".game-info__modal");
+          modal.style.display = "none";
+        };
+      });
     } //add company modal
 
 
@@ -511,13 +505,13 @@ function main() {
 
 
     if (event.target.classList.contains("close-button3")) {
-      var _closeTheGoddamnModal3 = function _closeTheGoddamnModal3() {
+      var _closeTheGoddamnModal2 = function _closeTheGoddamnModal2() {
         companymodal.classList.toggle("show-companymodal");
       };
 
       var closeButton = document.querySelector(".close-button3");
       var companymodal = document.querySelector(".modal-company");
-      closeButton.addEventListener("click", _closeTheGoddamnModal3);
+      closeButton.addEventListener("click", _closeTheGoddamnModal2);
     }
   });
 }

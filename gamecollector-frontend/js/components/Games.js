@@ -3,13 +3,15 @@ export default function Games(games) {
     .map(game => {
       return `
                 <li class="game">
-                    <img id="${game.id}" class="game__imagepath" src="${
+                    <img data-modal="${game.id}" class="game__imagepath" src="${
         game.imagePath
       }"></img>
                 </li>
                 <div id="${game.id}" class ="game-info__modal">
                     <div class="game-infomodal-content">
-                        <span class="close-button4">X</span>
+                        <span data-modal="${
+                          game.id
+                        }" class="close-button4">X</span>
                         <img class="game__infoimagepath" src="${
                           game.screenShot
                         }"></img>
