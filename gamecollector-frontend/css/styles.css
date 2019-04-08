@@ -378,11 +378,11 @@
   height: 100%;
   max-width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  z-index: 3;
-  visibility: hidden;
+  opacity: 1;
+  z-index: 10;
+  display: none;
   transform: scale(1.1);
-  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  /* transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s; */
 }
 
 .game-infomodal-content {
